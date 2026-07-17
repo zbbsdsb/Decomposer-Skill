@@ -4,304 +4,406 @@ A five-step cognitive operation protocol for transforming unknown unknowns into 
 
 ---
 
-## 0. What This Document Is
+## 0. The Problem This Solves
 
-This document describes a repeatable, teachable process for decomposing any large, ambiguous, or aspirational goal into an **actionable uncertainty map** — a structure where every node has a survival condition and every claim can be tested against reality.
+When someone describes a massive, ambiguous goal to an AI, the AI takes the path of least resistance: a polished module list. "User management. Payment system. Recommendation engine. Content moderation." It looks structured. It looks comprehensive. It is a lie.
 
-The protocol is domain-agnostic. It operates on cognition, not on objects. You can apply it to building a product, starting a company, planning a research program, or making a personal life decision. The steps are the same. The domain knowledge is yours to supply.
+The lie is not intentional. The AI is not malicious. It is simply optimizing for the wrong metric — it optimizes for *looking helpful*, when it should optimize for *being honest*.
 
-The protocol has exactly two metrics: **honesty** and **actionability**. If the output is dishonest, it is worthless. If it is honest but not actionable, it is incomplete. Everything else is derivative.
+The cost of this lie is not obvious until you try to act on it. You follow the plan. You build module one. Then module two. Then you hit a wall that was invisible in the plan — a dependency nobody mentioned, an assumption that was false, a constraint that makes the entire architecture untenable. The plan didn't warn you because the plan never saw the wall. It wasn't looking.
 
----
+The Decomposer Protocol exists to force the wall into visibility before you walk into it.
 
-## 1. Honesty Fuse
-
-### Purpose
-
-Stop the default trajectory of AI-assisted planning, which is to produce a polished, comprehensive, and fundamentally hollow response. The path of least resistance when someone describes a massive goal is to generate a beautiful module list. That list is a lie. The Honesty Fuse exists to prevent this lie from being written.
-
-### Input
-
-A request from the user. Typically large, ambiguous, or aspirational. Something like "I want to build a platform like Twitter," "I want to start a company in AI education," or "I want to research whether LLMs can do mathematical proof."
-
-### What to Do
-
-Before decomposing anything, declare three things:
-
-**1. What I can address directly.**
-Not what I think the full project entails — only what I can meaningfully engage with given the information provided and my actual capabilities. Be specific. "I can help you identify the core assumptions of this idea" is honest. "I can help you build this platform" is not, unless you actually can.
-
-**2. Where my blind spots are.**
-Things I cannot evaluate with the information given. Not vague hedging — concrete statements about what I would need to know but do not. "I do not know your target users" is a blind spot. "There might be some challenges" is evasive noise.
-
-**3. The most likely collapse risk.**
-If we proceed without resolving the blind spots, what is the single most probable way this whole thing dies? Not a list of ten risks. One risk, stated plainly.
-
-### What NOT to Do
-
-- Do not output any module list, feature list, or component breakdown.
-- Do not suggest any solutions, architectures, or approaches.
-- Do not pretend to understand the full scope of the request.
-- Do not provide false comfort. "This is ambitious but achievable with the right approach" is false comfort unless you have already done the decomposition to back it up.
-
-### Self-Check
-
-If this step's output makes the user feel like you haven't helped them — that is probably correct. The first honest act in any collaboration is refusing to provide the reassurance the user is looking for. If the user wanted reassurance, they wouldn't need a Decomposer.
-
-### Example
-
-**User**: "I want to build an AI-powered personalized education platform."
-
-**Honesty Fuse output**:
-- **What I can address**: I can help you identify what "personalized education" means concretely enough to test, and I can map the dependencies between technical capabilities and educational outcomes.
-- **Blind spots**: I do not know who your target learners are, what subject matter, what age range, what existing solutions they currently use, or whether "personalized" means adaptive difficulty, custom curriculum, or something else entirely. I also cannot determine whether the core value proposition (AI improves learning outcomes) is true without empirical data that neither of us has.
-- **Collapse risk**: You build a technically impressive adaptation engine for a problem that learners do not actually experience, and nobody uses it.
+It has exactly two metrics: **honesty** and **actionability**. If the output is dishonest, it is worthless. If it is honest but you cannot act on it, it is incomplete. Everything else — elegance, comprehensiveness, professionalism — is noise.
 
 ---
 
-## 2. Uncertainty Mapping
+## Step 1: The Honesty Fuse
 
-### Purpose
+### What It Is
 
-Take the raw, undifferentiated mass of the user's request and force a classification. The act of classifying each element into one of three categories is itself the first decomposition — and it reveals structure that did not exist before the classification was attempted.
+A hard stop before any decomposition begins. The moment a request enters the protocol, the first output is not analysis and not structure — it is a confession of limits.
 
-### Input
+### Why It Exists
 
-The user's original request plus the Honesty Fuse output.
+Without this step, every subsequent step is contaminated by the pressure to appear competent. The decomposer will silently prune uncertainties, round up confidence levels, and produce a map that flatters rather than informs. The Honesty Fuse exists to make that pressure visible and refuse it.
+
+### The Three Declarations
+
+Before anything else, declare three things:
+
+**1. What I can actually engage with.**
+Not what the project "involves." Not what "needs to be done." Specifically what *I* — the entity executing this protocol — can meaningfully address given the information provided and my actual capabilities. If I can help you identify your core assumptions, say that. If I cannot help you build a distributed system, say that too.
+
+**2. Where I am blind.**
+Not vague hedging. Not "there may be challenges." Concrete statements about what I would need to know but do not. "I do not know who your users are." "I do not know whether the underlying physics permits this." "I do not know whether you have the capital to survive the validation period." Each blind spot is a specific piece of missing information, not a mood.
+
+**3. How this thing most likely dies.**
+One risk. Not a list. The single most probable collapse mode if we proceed without resolving the blind spots. Stated plainly, without hedging.
+
+### What This Step Forbids
+
+No module lists. No feature breakdowns. No solution proposals. No architectural suggestions. No "this is ambitious but achievable." No false comfort of any kind.
+
+If the user walks away from this step feeling like nothing useful happened, the protocol is working. The first honest act in any collaboration is the refusal to provide premature reassurance.
+
+### How It Manifests Across Contexts
+
+The Honesty Fuse is the same act regardless of who is executing the protocol. But the *content* of the honesty changes with the executor's cognitive position:
+
+- **For a technical architect**, the honesty sounds like: "I can map the technical dependencies, but I cannot determine whether users want this. If they don't, every line of code is waste."
+- **For a non-technical founder with no coding ability**, the honesty sounds like: "I can help you find out whether anyone will pay for this without writing a single line of code. But I cannot tell you whether the thing itself can be built at scale — that's a different question for a different moment."
+- **For a decision-maker with capital and vision but no time**, the honesty sounds like: "I can translate your vision into three questions that will drain the technical knowledge of any CTO you sit with. But I cannot make the technical decision for you."
+- **For a research-grade thinker**, the honesty sounds like: "I can help you write the theorem that kills this direction in three days instead of six months. But I cannot tell you whether the theorem will come out positive or negative."
+
+Same structure. Different flesh. The protocol adapts; the principle does not.
+
+---
+
+## Step 2: Uncertainty Mapping
+
+### What It Is
+
+A forced classification of every identifiable element in the request into one of three zones. The act of classification is itself a decomposition — it reveals structure that did not exist before you tried to classify.
+
+### What Is an Element?
+
+An **element** is the smallest unit of uncertainty in the request that can be independently assigned a zone. It is a *claim-that-needs-testing*, not a component or a task.
+
+Rules of thumb for identifying an element:
+
+1. **If you can write a survival condition for it, it is an element.** If you cannot, it is too vague or too large. Break it down further.
+
+2. **If it contains a hidden assumption, it is an element.** "Users will pay $10/month" is an element (assumption: willingness to pay). "Payment system" is not an element — it is a module that bundles multiple assumptions (user trust, payment processing, fraud detection).
+
+3. **If removing it does not change the meaning of the request, it is not an element.** "Intuitive UI" is not an element. "First-time users complete onboarding without instructions" is an element.
+
+An element at the wrong granularity is worse than no element. The right granularity is: *an element is a claim that, if wrong, would change a decision.*
 
 ### The Three Zones
 
 **Green Zone — Known-Knowns.**
-Things that can be executed immediately without additional information. Not "things that seem straightforward" — things where you could write down the next concrete action right now and it would be correct.
+Things you could act on right now and be confident the action is correct. Not "things that seem straightforward." Things where the next concrete step is unambiguous. "Set up a web server" is Green if you know exactly which provider, which stack, and what the endpoint does. It is Yellow if you haven't decided those things yet.
 
 **Yellow Zone — Known-Unknowns.**
-You know a problem exists here, but its depth and shape are unclear. You can name the question; you cannot answer it. "How do we handle cold-start for the recommendation engine?" is a Known-Unknown. You know you need a recommendation engine, and you know cold-start is a problem, but you don't know the solution yet.
+You know a question exists; you cannot answer it yet. "How do we handle cold-start for the recommendation engine?" — the question is clear, the answer is not. Yellow Zone elements are the protocol's primary targets, because each one is a candidate for conversion from unknown to known.
 
 **Red Zone — Unknown-Unknowns.**
-You don't even know whether a problem exists here. These are the blind spots from the Honesty Fuse that survived into the mapping stage because they couldn't be resolved by thinking alone — they require real-world contact (experiments, conversations, observations) to even become visible.
+You cannot even formulate the question. These are not "hard problems." Hard problems are Yellow. Red Zone is the space where you don't know what you don't know — hidden dependencies, unexpected failure modes, assumptions so deep you can't see them. Red Zone elements can only be made visible through real-world contact: experiments, conversations, collisions with reality.
 
-### Hard Constraint
+### The 70% Rule
 
-If Green Zone exceeds 70% of all mapped elements, the mapping is almost certainly dishonest. Return to Step 1 and re-examine what you're failing to see. A genuinely ambitious project viewed honestly should have substantial Yellow and Red territory. If it doesn't, one of two things is true: either the project isn't actually ambitious, or you're lying to yourself.
+If Green Zone exceeds 70% of all mapped elements, the mapping is almost certainly dishonest. Return to Step 1.
 
-### How to Map
+A genuinely ambitious project viewed honestly has substantial Yellow and Red territory. If it doesn't, one of two things is true: the project isn't actually ambitious, or you're lying to yourself. The 70% rule is the protocol's immune response to its own deepest temptation — the temptation to classify everything as "we've got this."
 
-List every identifiable element of the request. For each one, ask: "Could I write down the next action for this right now, and be confident it's correct?"
+(Note: this threshold is an empirical heuristic, not a calibrated metric. It serves as a sanity check, not a statistical test. If you have strong evidence that a different threshold is more honest for your specific context, use that instead.)
+
+### How to Map Quickly
+
+For each element, ask one question: "Could I write down the next action for this right now, and be confident it's correct?"
 
 - Yes → Green.
-- I know what I need to figure out, but I haven't figured it out yet → Yellow.
+- I know what I need to figure out but haven't → Yellow.
 - I'm not even sure what question to ask → Red.
 
-Do not deliberate. If you have to think for more than ten seconds about whether something is Green, it's Yellow or Red.
+If you deliberate for more than ten seconds, it's not Green.
 
-### Example (continued)
+### How It Manifests Across Contexts
 
-| Element | Zone | Rationale |
-|---------|------|-----------|
-| Define "personalized" in concrete terms | Yellow | The question is clear but unanswered |
-| Identify target learner profile | Red | We don't know who the users are |
-| Build content delivery system | Yellow | We know we need one; technical approach unknown |
-| Determine if AI actually improves outcomes | Red | This is an empirical question; no data exists yet |
-| Set up basic web infrastructure | Green | We know how to do this today |
-| Design pedagogical framework | Red | Not even clear what "pedagogical framework" means in this context |
-
-Green: 1/6 (17%). This is a heavily red-shifted map — which is honest for a genuinely uncertain undertaking.
+- **Technical architect**: The map is a system blueprint with uncertainty overlays. Green = "deploy this now." Yellow = "prototype this before committing." Red = "we don't know if physics/math/market allows this."
+- **Non-technical founder**: The map is a survival chart. Green = "you can do this with your bare hands today." Yellow = "you need to talk to 5 people before this becomes clear." Red = "nobody in the world knows the answer to this yet; your job is to design an experiment that makes it visible."
+- **Decision-maker**: The map is an investment risk matrix. Green = "this will work regardless." Yellow = "this depends on a variable we can measure." Red = "this could kill the entire direction; it needs a dedicated probe."
+- **Research thinker**: The map is a falsifiability stack. Green = "the math checks out." Yellow = "the math is unproven but the conjecture is testable." Red = "we don't even know if the conjecture is well-posed."
 
 ---
 
-## 3. Hierarchical Decomposition
+## Core Concept: Survival Condition
 
-### Purpose
+A **Survival Condition** is a pair of concrete, observable, falsifiable statements that define what "alive" and "dead" mean for a single node in the uncertainty map.
 
-Transform the flat uncertainty map into a structure that reveals **cognitive dependencies** — which unknowns must be resolved before others can even be meaningfully addressed.
+- **Alive if**: [a specific, measurable state of the world]
+- **Dead if**: [a specific, measurable state of the world]
 
-This is not functional decomposition. You are not breaking the project into modules, features, or sprints. You are breaking it into **epistemic layers**: things you must know before you can know other things.
+A survival condition is not a risk. It is not a description of work needed. It is a *binary test* that anyone can apply to determine whether the node's underlying assumption holds. If you cannot write both sentences in plain language without using jargon, the node does not yet have a survival condition — it has a vague hope dressed in structure.
 
-### Input
+Examples:
+- "Alive if 50 users return 3 times in their first week. Dead if fewer than 10 do."
+- "Alive if the prototype renders 60fps on a 3-year-old phone. Dead if it drops below 30fps."
+- "Alive if the experiment yields p < 0.05. Dead if p >= 0.05."
 
-The uncertainty map from Step 2.
+---
 
-### How to Decompose
+## Step 3: Hierarchical Decomposition
 
-For each element in the map, ask three questions:
+### What It Is
 
-**1. What must be true for this element to survive?**
-Not "what work is needed to build it" — what must be *known*. If this element turned out to be based on a false assumption, what assumption would that be?
+Transform the flat map into a structure that reveals **cognitive dependencies** — which unknowns must be resolved before others can even be meaningfully addressed.
 
-**2. If this element fails, what else dies with it?**
-This is the lethality chain. Some elements are load-bearing: if they collapse, half the project collapses with them. Others are independent: they can fail without taking anything down.
+This is not functional decomposition. You are not breaking the project into modules or features. You are breaking it into **epistemic layers**: things you must know before you can know other things.
 
-**3. Can this element remain unresolved forever, and the project still partially survives?**
-Some unknowns are fatal if left unresolved. Others are nice-to-resolve but not blocking. This distinction determines what you attack first.
+### The Transition: From Flat Map to Hierarchical Tree
 
-### Node States
+The flat map from Step 2 lists elements by zone. The tree in Step 3 must reveal which elements depend on which. The conversion is not automatic — it requires a deliberate procedure:
 
-Each node in the resulting tree has exactly one of three states:
+**1. Identify root unknowns.**
+Among the mapped elements, find those that, if resolved, would make other elements more knowable. These are root candidates. In a short-video platform map, "Do users want to share short-form video in this market?" is a root — if it is false, the entire tree dies. "Hosting setup" is not a root — it survives regardless of the answer.
 
-- **Executable**: Survival conditions are known and met. This node can be acted upon now. It may still fail, but we know what "success" and "failure" look like.
-- **Pending Validation**: We know roughly what information would resolve this node's uncertainty, but we don't have it yet. This node requires an experiment, a conversation, a calculation, or some other concrete probe.
-- **Blind Zone**: We cannot even formulate what "resolved" would look like for this node. The most useful thing to do is not to work on it directly, but to resolve adjacent nodes that might make this one's shape visible.
+**2. Apply the dependency test.**
+For every pair of elements (A, B), ask: "If A remains unknown, can B still be meaningfully addressed?" If yes, B is independent of A. If no, A is a dependency of B — B must wait until A is resolved.
 
-### Critical Distinction
+Run this test for all pairs. The result is a directed graph where edges represent "must know first."
 
-Functional decomposition asks: "What are the parts?"
-Cognitive decomposition asks: "What do I need to know first?"
+**3. Prune the tree.**
+Any element that has no dependencies and nothing depends on it is either an independent leaf (keep it — it can be parallelized) or noise (delete it). The surviving structure is the cognitive dependency tree.
 
-A functional decomposition of "build a social platform" gives you: user auth, feed algorithm, content storage, notifications, moderation.
-A cognitive decomposition of the same project gives you: "Do people actually want to share short-form video in this market?" → "What retention rate indicates product-market fit?" → "What technical architecture supports that retention rate?" → "How do we build that architecture?"
+> **Important**: This is not a functional decomposition tree. It does not show "Module A contains Module B." It shows "I must know X before I can know Y." The two are different, and confusing them is the most common error in this step.
 
-The functional list pretends everything can be built in parallel. The cognitive list reveals that three of those five modules are meaningless until one question is answered first.
-
-### Example (continued)
-
+**Mini-example:**
 ```
-[Blind] Does AI-driven personalization actually improve learning outcomes?
-  └── [Pending] What does "personalization" mean for our target learners?
-        └── [Pending] Who are our target learners?
-        └── [Blind] What subject matter and age range?
-  └── [Executable] Set up basic web infrastructure (independent of above)
-  └── [Pending] What content delivery approach fits the (unknown) learner profile?
-        └── depends on: "Who are our target learners?"
-  └── [Blind] What pedagogical framework underpins the adaptation logic?
-        └── depends on: "Does AI personalization actually work?"
+Flat map: [User Demand, Recommendation Algorithm, Content Moderation, Hosting Setup]
+
+Dependency test:
+- Hosting Setup depends on nothing → independent leaf
+- User Demand depends on nothing → root candidate
+- Recommendation Algorithm depends on User Demand (if nobody uses it, the algorithm is irrelevant)
+- Content Moderation depends on User Demand (same logic)
+
+Tree:
+  User Demand ← root
+    ├── Recommendation Algorithm ← depends on User Demand
+    └── Content Moderation ← depends on User Demand
+  Hosting Setup ← independent leaf (can proceed in parallel)
 ```
 
----
+### The Three Questions
 
-## 4. Error Budget Assignment
+For each element, ask:
 
-### Purpose
+**1. What must be true for this to survive?**
+Not "what work is needed." What must be *known*. This is the **Survival Condition** (see definition above). If this element is based on a false assumption, what assumption is it?
 
-Attach concrete confidence and survival conditions to every node. This is where the uncertainty map stops being an analytical exercise and becomes an actionable instrument.
+**2. If this dies, what else dies with it?**
+The lethality chain. Some elements are load-bearing — if they collapse, half the structure collapses. Others are independent.
 
-### Input
+**3. Can this remain unresolved forever, and the project still partially survives?**
+Some unknowns are fatal if left alone. Others are nice-to-resolve. This distinction determines what you attack first.
 
-The node tree from Step 3.
+### The Three Node States
 
-### What to Assign
+- **Executable**: Survival conditions are known and met. Act now.
+- **Pending Validation**: We know what information would resolve this, but we don't have it. This node needs a concrete probe — an experiment, a conversation, a calculation.
+- **Blind Zone**: We cannot even formulate what "resolved" looks like. Do not work on this directly. Resolve adjacent nodes first; this one's shape may become visible as its neighbors come into focus.
 
-For each node, three attributes:
+### The Critical Distinction
 
-**Confidence** — One of four levels: High, Medium, Low, Zero.
+Functional decomposition asks: *"What are the parts?"*
+Cognitive decomposition asks: *"What do I need to know first?"*
 
-This is not "how sure am I." It is: **"If this node is wrong, how quickly would I discover that fact?"**
+A functional decomposition of "build a social platform" gives you: user auth, feed algorithm, content storage, notifications, moderation. Five parallel workstreams. Looks great. Means nothing — because it doesn't tell you that three of those five are worthless until you know whether people want to share short-form video in this market.
 
-- **High**: I would discover failure within hours or days of acting on it. The failure mode is obvious and local.
-- **Medium**: I would discover failure within weeks. The failure mode might not be immediately obvious.
-- **Low**: I would discover failure within months, or the failure mode is obscured by other factors.
-- **Zero**: I have no basis for any confidence. I am guessing.
+A cognitive decomposition asks: "What single unknown, if resolved, makes the most other unknowns collapse into knowability?" That is your first target. Everything else waits.
 
-**Survival Condition** — One sentence describing:
-- *Alive if*: the specific condition under which this node is considered viable.
-- *Dead if*: the specific condition under which this node must be abandoned.
+### How It Manifests Across Contexts
 
-Not a paragraph. Not a list of risks. One sentence for alive, one sentence for dead. If you cannot write these two sentences, you do not understand the node well enough to include it.
-
-**Lethality** — Which downstream nodes die if this node dies?
-
-Not a vague "this would affect other areas." A specific list: "If this node dies, nodes X, Y, and Z also die."
-
-### Hard Constraint
-
-A node with "High" confidence but no written survival condition is automatically downgraded to "Low." No exceptions. If you cannot state what "alive" and "dead" mean for a node in concrete terms, you are not high-confidence about it — you are high-confidence about your ability to sound authoritative.
-
-### Example (continued)
-
-| Node | Confidence | Alive If | Dead If | Kills |
-|------|-----------|----------|---------|-------|
-| Set up basic web infrastructure | High | Server responds to requests within 48 hours | Server cannot be deployed in one week | Nothing (independent) |
-| Who are our target learners? | Medium | We can name a specific group with a specific problem | After 10 conversations, no coherent user profile emerges | Content delivery, pedagogical framework, personalization logic |
-| Does AI personalization improve outcomes? | Zero | Published evidence or our own experiment shows effect size > 0 | Existing research shows no significant effect, or our experiment shows null result | The entire premise of the project |
+- **Technical architect**: The decomposition produces a dynamic node tree. Not a static module list — a tree where each node has a *survival condition*: "User authentication (survives if: daily active users < 1000, OAuth-only is sufficient; dies if: DAU exceeds 1000 and we haven't designed for multi-factor)." Nodes without survival conditions are not "pending" — they are *deleted*.
+- **Non-technical founder**: The decomposition produces a **human-equivalence plan**. For every "system," the question is: "Can a human being manually perform this function right now?" If yes, that's the starting point. The manual process *is* the prototype. You don't build the recommendation engine — you manually recommend things to 50 people using an Excel spreadsheet and watch what happens. The manual process becomes the SOP that any future developer or contractor can implement. If a function *cannot* be manually simulated, it should not be automated yet, because you don't understand it well enough.
+- **Decision-maker**: The decomposition produces **three decision cards** — the only three things that matter right now:
+  1. **The Fatal Assumption Card**: "If this product launches and nobody uses it, it will most likely be because of [one reason]. Here is how to test that specific reason for under $100."
+  2. **The Resource Leverage Card**: "These are the three questions you can ask any technical person over coffee to determine whether this direction is technically alive or dead. You don't need to understand the answers deeply — you just need to see whether they hesitate."
+  3. **The Minimum Sellable Unit (MSU) Card**: Not an MVP. An MVP is a product. An MSU is a *probe*. "The smallest thing you can sell for money today — a custom report, a phone consultation, a curated list — that proves someone will pay for the underlying value, regardless of whether the full product ever exists."
+  (These three cards are a decision-maker-specific rendering of Step 3's output. For other roles, Step 3 produces different renderings — see the corresponding manifestation sections. The cards are structurally equivalent to the nodes in the hierarchical tree, but formatted for capital-allocation decisions rather than execution planning.)
+- **Research thinker**: The decomposition produces a **falsifiability stack** with time-constant separation:
+  - *Fast variables* (milliseconds/seconds): algorithm behavior. Test with isolated scripts on historical data.
+  - *Medium variables* (hours/days): user behavior. Test with Wizard-of-Oz experiments — humans pretending to be the system.
+  - *Slow variables* (months/years): market dynamics. Test with system dynamics simulation.
+  
+  These three layers are physically isolated. When something fails, you know *which time scale* failed. No contamination. No ambiguity.
 
 ---
 
-## 5. Anti-Shell Self-Check
+## Step 4: Error Budget Assignment
 
-### Purpose
+### What It Is
 
-The final gate. This step exists because the first four steps can be executed faithfully and still produce something that *looks* rigorous but isn't. The self-check catches the specific failure modes that turn an honest process into a polished shell.
+Attach concrete confidence, survival conditions, and lethality to every node. This is where the uncertainty map stops being an analytical exercise and becomes a weapon.
 
-### Input
+### The Three Attributes
 
-The complete output of Steps 1 through 4.
+**Confidence** — High / Medium / Low / Zero.
+
+This is not "how sure am I." It is: **"If this node is wrong, how quickly would I find out?"**
+
+- **High**: Failure would surface within hours or days. The failure mode is obvious and local.
+- **Medium**: Failure would surface within weeks. Might not be immediately obvious.
+- **Low**: Failure would take months to surface, or the failure mode is obscured by confounding factors.
+- **Zero**: No basis for confidence. Guessing.
+
+**Survival Condition** — See the standalone definition above. The pair of "Alive if" / "Dead if" statements that define when this node is viable and when it must be abandoned. If you cannot write both sentences in plain language, you do not understand the node well enough to include it.
+
+**Lethality** — A specific list of downstream nodes that die if this node dies.
+
+Not "this would have broad impact." "If this node dies, nodes X, Y, and Z also die." Specific.
+
+### The Hard Constraint
+
+A node with "High" confidence but no written survival condition is automatically downgraded to "Low." No exceptions. If you cannot state what "alive" and "dead" mean in concrete terms, your confidence is not in the node — it is in your ability to sound authoritative. That is not the same thing, and the protocol treats it accordingly.
+
+### How It Manifests Across Contexts
+
+- **Technical architect**: The error budget becomes a specification document. Not "build a recommendation system" — "Recall phase: allow 15% miss rate on edge cases, but false positive rate must stay below 3% because my theoretical model breaks above that threshold. UI latency: 200ms jitter is acceptable, but data timestamps must be millisecond-precise and tamper-proof because they feed into causal analysis." The budget makes uncertainty *biddable* — a contractor can tell you whether they can meet it or not.
+- **Non-technical founder**: The error budget is a **time-leveraged test chain**. "Days 1-2: validate one fatal assumption with 5 real humans. Days 3-4: build a fake product using existing tools (WeChat bot, Google Forms, Notion database) and test it on a second group. Days 5-7: burn everything with the word 'probably' in it. Keep only what reality hit you with." If the direction is wrong, you spent 7 days, not 7 months.
+- **Decision-maker**: The error budget is expressed in *capital efficiency*. "Spend $50 to collect 20 competitor complaint keywords. Spend one coffee meeting to determine if the technical direction is viable. Spend zero time on anything else until both of those return." Every dollar and every hour is assigned to a specific uncertainty, with a defined "stop" condition.
+- **Research thinker**: The error budget is an **error budget in the literal sense** — each subsystem is assigned a numerical error tolerance, and the system as a whole has a total error budget that must not be exceeded. If the theoretical layer demands epsilon < 0.01, and the engineering layer can only deliver epsilon < 0.05, the protocol does not say "try harder." It says "the theory must be revised to tolerate epsilon = 0.05, or the project must not be built." Theory does not override reality.
+
+---
+
+## Step 5: The Anti-Shell Self-Check
+
+### What It Is
+
+The final gate. The first four steps can be executed faithfully and still produce something that *looks* rigorous but isn't. This step catches the specific failure modes that turn honest process into a polished shell.
 
 ### Five Hard Checks
 
-**Check 1: Survival Condition**
+**1. Survival Condition Check.**
+Does every node have a concrete, observable survival condition? "The team builds the feature" is not a survival condition. "50 users return to the product 3 times in their first week" is. If any node lacks this, either write the condition or delete the node.
 
-Does every node in the tree have a concrete survival condition?
+**2. Jargon Check.**
+Scan for phrases that consume space without creating knowledge: "leverage best practices," "implement robust architecture," "ensure scalability," "optimize user experience." If a statement cannot be translated into a concrete action or a measurable outcome, it is noise. Delete it.
 
-- A survival condition is a specific, observable state — something you can point to and say "it happened" or "it didn't."
-- "The team builds the feature" is not a survival condition.
-- "We have 50 users who return to the product 3 times in their first week" is a survival condition.
+**3. Uncertainty Ratio Check.**
+Is Yellow + Red at least 30% of all nodes? If not, you are deceiving yourself. The natural tendency — even with honest intent — is to over-classify as Green. "Green" feels productive. "Red" feels like admitting incompetence. It is not. Red is the whole point. That is where the unknown unknowns live, and converting them is the entire mission.
 
-If any node lacks this, it is a shell node. Either write the condition or delete the node.
+(Note: this ratio is an empirical heuristic, not a calibrated threshold. It exists to catch overconfidence, not to enforce a number. If you have strong evidence that a different ratio is more honest for your specific context, use that instead.)
 
-**Check 2: Jargon**
+**4. Honesty Check.**
+Is there at least one explicit, unhidden "I don't know" in the output? Not hedged, not qualified, not footnoted. A plain, visible statement of genuine ignorance. If there isn't one, either the project is trivial or the executor is lying about their uncertainty.
 
-Does any description in the output sound professional but cannot be verified by action?
-
-Scan for phrases like: "leverage best practices," "implement robust architecture," "ensure scalability," "optimize user experience." These phrases consume space without creating knowledge. If you cannot translate a statement into a concrete action or a measurable outcome, it is noise.
-
-**Check 3: Uncertainty Ratio**
-
-Is the Yellow + Red Zone at least 30% of all nodes?
-
-If your uncertainty map shows less than 30% uncertainty for a project that the user described as large, complex, or ambitious, you are almost certainly deceiving yourself. Return to Step 2.
-
-This check exists because the natural tendency — even with honest intent — is to over-classify things as Green. "Green" feels productive. "Yellow" and "Red" feel like admission of incompetence. They are not. They are the whole point.
-
-**Check 4: Honesty**
-
-Is there at least one explicit "I don't know" in the output?
-
-Not hedged. Not qualified. Not buried in a footnote. A plain, visible statement of something the protocol executor genuinely does not know.
-
-If there isn't one, either the project is trivial (in which case this protocol was unnecessary) or the executor is being dishonest about their uncertainty.
-
-**Check 5: Actionability**
-
-If the user starts acting this afternoon, what is the very first step?
-
-This must be answerable in one sentence. Not "begin research." Not "explore options." A specific action: "Email five people in [specific community] and ask them [specific question]."
-
-If you cannot answer this, the protocol has failed. The entire purpose of decomposition is to make the first step visible and concrete. If after four steps of honest analysis you still cannot say what to do first, something went wrong — likely, the decomposition is still too abstract.
+**5. Actionability Check.**
+If the user starts acting this afternoon, what is the very first step? Must be answerable in one sentence. Not "begin research." Not "explore options." A specific action: "Email five people in [specific community] and ask them [specific question]." If you cannot answer this, the protocol has failed. The entire purpose of decomposition is to make the first step visible. If after four steps of honest analysis you still cannot name it, the analysis is too abstract.
 
 ### Resolution
 
-If any check fails, return to the corresponding step and correct. Then re-run all five checks. Repeat until all five pass.
+If any check fails, return to the corresponding step and correct. Re-run all five checks. Repeat until all pass.
 
-This is not a formality. Each cycle through the checks sharpens the output. A first pass might fail checks 2 and 3. A second pass might fail check 1. A third pass might pass all five — and that output will be visibly, structurally different from anything a standard AI planning session produces.
+Each cycle sharpens the output. A first pass might fail checks 2 and 3. A second pass might fail check 1. A third pass passes all five — and that output will be structurally, visibly different from anything a standard AI planning session produces. It will have rough edges. It will have explicit gaps. It will make the user slightly uncomfortable. That is the point. Comfort is not a metric. Honesty is.
 
 ---
 
 ## Protocol Constraints
 
-These constraints apply to the entire protocol. They are not steps. They are the physics within which the steps operate.
+These are not steps. They are the physics within which the steps operate.
 
-**The output is an actionable uncertainty map, not a report.** A report informs. A map directs. The user should be able to look at the output and know what to do next — not just what the problem is.
+**The output is an actionable uncertainty map, not a report.** A report informs. A map directs. The user should look at the output and know what to do next.
 
-**The protocol is domain-agnostic.** It does not know or care whether you are building software, starting a company, planning research, or making a life decision. It operates on cognition: what you know, what you don't know, and what you don't know you don't know.
+**The protocol is domain-agnostic.** It operates on cognition, not on objects. Same five steps for software, startups, research, life decisions.
 
-**The protocol does not prescribe output format.** The map can be a conversation, a document, a spreadsheet, a tweet thread, or a whiteboard diagram. Format is an application-layer concern. This protocol defines the thinking, not the rendering.
+**The protocol does not prescribe output format.** Conversation, document, spreadsheet, tweet thread, whiteboard — format is application-layer. This protocol defines the thinking, not the rendering.
 
-**The protocol is iterative, not strictly linear.** In practice, Step 3 (decomposition) often reveals new elements that should have been mapped in Step 2, which in turn might require revisiting the Honesty Fuse in Step 1. The self-check in Step 5 catches these loops. Do not fight them — they are the protocol working correctly.
+**The protocol is iterative, not linear.** Step 3 often reveals elements that belong in Step 2, which might require revisiting Step 1. The self-check in Step 5 catches these loops. Don't fight them.
 
-**The protocol's two metrics are honesty and actionability.** Every design decision in this document serves one or both of these metrics. If adding something makes the output more honest or more actionable, it belongs. If it makes the output look more impressive without improving honesty or actionability, it does not belong.
+**The protocol adapts to the cognitive position of the executor.** A technical architect, a non-technical founder, a decision-maker, and a research thinker all execute the same five steps. But the *shape* of the output changes — heat maps and dynamic nodes for the architect, human-equivalence plans and test chains for the founder, decision cards for the capital-holder, falsifiability stacks and error budgets for the scholar. The protocol is universal; its manifestations are contextual.
 
----
-
-## What This Protocol Is Not
-
-- It is not a project management framework. It does not tell you how to run sprints, track velocity, or manage a team.
-- It is not a replacement for domain expertise. It structures your thinking; it does not supply the substance.
-- It is not a guarantee of success. An honest uncertainty map can still lead to a dead end — but it will lead there visibly, not by surprise.
-- It is not a tool for avoiding risk. It is a tool for making risk visible and specific, so you can decide which risks to take.
+**The protocol has exactly two metrics: honesty and actionability.** Every design decision in this document serves one or both. If something makes the output more honest or more actionable, it belongs. If it makes the output look more impressive without improving honesty or actionability, it does not belong.
 
 ---
 
 ## The Ultimate Test
 
-Apply this protocol to a project you care about. If the output is measurably different from what a standard AI planning session would produce — if it contains explicit uncertainty annotations, if every node has a survival condition, if at least 30% of the map is Yellow or Red, and if you can name the first concrete action — then the protocol worked.
+Apply this protocol to a project you care about.
 
-If the output looks like a polished project plan with confident language and comprehensive coverage, the protocol failed. Start over.
+If the output is measurably different from what a standard AI planning session would produce — if it contains explicit uncertainty annotations, if every node has a survival condition, if at least 30% of the map is Yellow or Red, and if you can name the first concrete action — the protocol worked.
+
+If the output looks like a polished project plan with confident language and comprehensive coverage, the protocol failed. Start over. You took the path of least resistance.
+
+---
+
+## End-to-End Worked Example: "Build the Next TikTok"
+
+This example runs a single request through all five steps so you can see the protocol's full execution path.
+
+**Request**: "I want to build a short-video platform like TikTok, but for a niche audience. I don't know how to code and I have a limited budget."
+
+### Step 1 Applied: Honesty Fuse
+
+> **What I can address**: I can help you identify the core assumptions that would kill this idea before you spend any money. I can design a manual test that simulates the platform without writing any code.
+>
+> **Where I am blind**: I do not know your niche audience, what content format they prefer, whether they currently use existing platforms, or what your budget ceiling is. I also cannot tell you whether this market has room for a new entrant — that is an empirical question.
+>
+> **Collapse risk**: You build a platform before validating that anyone in your niche wants a dedicated short-video experience. The most likely outcome is: you launch, nobody comes, and you cannot tell whether the idea was wrong or the execution was wrong.
+
+### Step 2 Applied: Uncertainty Mapping
+
+Elements identified and classified:
+
+| Element | Zone | Rationale |
+|---------|------|-----------|
+| Niche audience exists and wants this | Red | No data yet; we don't know if the problem is real |
+| Manual content creation workflow | Green | Can be done with a shared folder and a phone |
+| User acquisition without paid ads | Yellow | Known question, unknown answer — depends on the niche |
+| Platform hosting setup | Green | Standard web hosting, well-understood |
+| Recommendation algorithm | Yellow | Need is clear, approach is not — but irrelevant until user demand is confirmed |
+| Monetization model | Red | Cannot design this until we know who the users are and what they value |
+| Content moderation at scale | Red | Not relevant until we have users; belongs in a later iteration |
+| First 100 users from organic channels | Yellow | Strategy exists, feasibility depends on niche |
+
+**Zone distribution**: Green: 2 (25%), Yellow: 3 (37.5%), Red: 3 (37.5%). Passes the 70% rule — uncertainty is honestly represented.
+
+### Step 3 Applied: Hierarchical Decomposition
+
+**Transition from flat map to tree:**
+
+Root unknown identified: "Niche audience exists and wants this." Everything else depends on this question.
+
+Dependency test applied:
+- "Manual content creation workflow" and "Platform hosting setup" are independent — they can be done in parallel regardless of the root's outcome.
+- "User acquisition" depends on knowing who the users are.
+- "Recommendation algorithm" depends on user demand existing (it is irrelevant if nobody uses the platform).
+- "Monetization model" depends on knowing the user profile.
+- "Content moderation at scale" depends on user demand existing.
+
+Resulting tree:
+```
+Niche audience exists and wants this ← RED — root
+  ├── User acquisition (depends on knowing the niche) ← YELLOW
+  ├── Monetization model (depends on user profile) ← RED
+  ├── Recommendation algorithm (depends on user demand) ← YELLOW
+  └── Content moderation at scale (depends on user demand) ← RED
+
+Manual content creation workflow ← GREEN — independent leaf
+Platform hosting setup ← GREEN — independent leaf
+```
+
+**Node states:**
+- **Executable**: Manual content creation workflow, Platform hosting setup
+- **Pending Validation**: User acquisition, Recommendation algorithm, Monetization model
+- **Blind Zone**: Content moderation at scale, Niche audience validation
+
+### Step 4 Applied: Error Budget Assignment
+
+Three key nodes fully assigned:
+
+| Node | Confidence | Survival Condition | Lethality |
+|------|-----------|-------------------|-----------|
+| Niche audience validation | Low | Alive if: 20 people from the niche voluntarily submit content via a manual process within 2 weeks. Dead if: fewer than 5 submit after direct invitation. | Kills: everything downstream |
+| Manual content creation | High | Alive if: one person can produce and publish 5 pieces of content per day using a phone and basic editing tools. Dead if: production takes more than 2 hours per piece. | Nothing (independent) |
+| User acquisition | Medium | Alive if: at least 50 people from the niche join a waitlist or follow a dedicated account after a targeted outreach campaign. Dead if: outreach to 200 people yields fewer than 10 sign-ups. | Kills: monetization model |
+
+### Step 5 Applied: Anti-Shell Self-Check
+
+**Check 1 — Survival Condition**: All three assigned nodes have concrete survival conditions. The remaining nodes (recommendation algorithm, monetization model, content moderation) are marked as dependent on the root — they inherit their survival conditions from the root's outcome. **Pass.**
+
+**Check 2 — Jargon**: Scanned for "leverage," "optimize," "robust," "best practice." None found. Descriptions are concrete. **Pass.**
+
+**Check 3 — Uncertainty Ratio**: Green: 2 (25%), Yellow: 3 (37.5%), Red: 3 (37.5%). Yellow+Red = 75%. **Pass.**
+
+**Check 4 — Honesty**: Explicit "I don't know" present in Step 1: "I cannot tell you whether this market has room for a new entrant." **Pass.**
+
+**Check 5 — Actionability**: First step: "Identify 20 people in your target niche and offer them a simple way to submit short-form content manually (via email, WhatsApp, or a shared folder). Do not build anything. Do not write code. Just see if they engage." **Pass.**
+
+### What the Output Tells You
+
+The actionable first step is clear: validate the niche audience manually before building anything. The two Green nodes (manual content creation, hosting setup) can be parallelized, but they should be kept minimal — just enough to support the validation. The three Red nodes (monetization, content moderation, recommendation algorithm) are explicitly deferred until the root is resolved.
+
+This is structurally different from what a standard AI planning session would produce. A standard session would generate a 20-module roadmap with confident timelines. This output says: "Here is the one thing you need to know first. Here is how to test it for free. Everything else waits."
