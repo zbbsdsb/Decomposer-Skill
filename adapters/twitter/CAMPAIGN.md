@@ -2,8 +2,8 @@
 
 A complete, executable launch campaign for promoting the Decomposer protocol on X/Twitter (English, global reach).
 
-> **Repo:** https://github.com/chkev/Decomposer-Skill
-> **Handle (confirm):** @chkev — replace with your real handle everywhere below.
+> **Repo:** https://github.com/zbbsdsb/Decomposer-Skill
+> **Handle:** @zbbsdsb (confirmed)
 > **Voice:** Honest. Provocative-but-earned. Intellectual, not academic. We sell *epistemic humility*, not features.
 > **North star (the protocol's own rule):** Every piece of content must end with a concrete action or an explicit "I don't know." No comfort. No shells.
 
@@ -84,7 +84,7 @@ That's a RED zone. So before building anything, I'm testing it with you. 👇
 
 **11/** Decomposer is free. MIT-licensed. Works with any AI, or with just a whiteboard and sticky notes.
 The protocol is free. The honesty is the point.
-👉 https://github.com/chkev/Decomposer-Skill
+👉 https://github.com/zbbsdsb/Decomposer-Skill
 
 **12/** Try it in the next 10 minutes: take ONE thing you're "planning" and write its Honesty Fuse.
 What can you do? Where are you blind? How does it die?
@@ -245,7 +245,7 @@ Aligned to the proven mix. Over 30 days this balances authority-building with re
 
 ## 13. ✅ PRE-LAUNCH CHECKLIST
 
-- [ ] Confirm handle; update @chkev placeholders.
+- [x] Handle confirmed: @zbbsdsb; all repo links updated.
 - [ ] Ensure repo README, PROTOCOL.md, and assets render (og-card.jpg for link previews).
 - [ ] Prepare the "70% rule" visual (assets/diagrams/protocol-flow.svg works as a shareable image).
 - [ ] Schedule Launch Thread for Day 1, 9am ET.
