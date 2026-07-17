@@ -89,7 +89,7 @@ A ready-to-post X/Twitter thread for announcing the Decomposer protocol.
 >
 > The protocol is free. The honesty is the point.
 >
-> https://github.com/chkev/Decomposer-Skill
+> https://github.com/zbbsdsb/Decomposer-Skill
 
 ---
 
@@ -107,4 +107,4 @@ A ready-to-post X/Twitter thread for announcing the Decomposer protocol.
 >
 > No AI required. Runs on a whiteboard. MIT licensed.
 >
-> https://github.com/chkev/Decomposer-Skill
+> https://github.com/zbbsdsb/Decomposer-Skill
