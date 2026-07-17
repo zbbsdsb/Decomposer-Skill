@@ -14,7 +14,20 @@ A protocol — a repeatable, teachable five-step process for decomposing any lar
 
 1. **[MANIFEST.md](MANIFEST.md)** — Why this exists. The core claim and commitment. (~800 words)
 2. **[PROTOCOL.md](PROTOCOL.md)** — The five-step protocol. The core deliverable. (~3500 words)
-3. **[FIELD_GUIDE.md](FIELD_GUIDE.md)** — How the protocol surfaces in TRAE and Twitter. Application-layer.
+3. **[FIELD_GUIDE.md](FIELD_GUIDE.md)** — How the protocol surfaces in different contexts. Application-layer.
+4. **[SKILL.md](SKILL.md)** — Platform-agnostic skill definition. The canonical entry point for executing the protocol.
+5. **[references/](references/)** — Shared reference files (cognitive position routing, output context rules, anti-shell checklist).
+
+## Application Adapters
+
+The protocol is universal; its rendering is contextual. Each adapter defines platform-specific invocation and formatting rules.
+
+| Adapter | Path | Purpose |
+|---------|------|---------|
+| TRAE | [adapters/trae/SKILL.md](adapters/trae/SKILL.md) | TRAE IDE skill discovery and invocation |
+| Twitter | [adapters/twitter/](adapters/twitter/) | Long-form essay structural template |
+| Team | [adapters/team/](adapters/team/) | Decision-friendly meeting brief format |
+| Human | [adapters/human/](adapters/human/) | Pen-and-paper physical checklist |
 
 ## The Core Idea
 
