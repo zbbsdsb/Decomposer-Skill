@@ -11,11 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/license-MIT-22c55e?style=flat-square" alt="License MIT"></a>
-  <a href="#"><img src="https://img.shields.io/badge/status-alpha-eab308?style=flat-square" alt="Status Alpha"></a>
-  <a href="#"><img src="https://img.shields.io/badge/platform-agnostic-3b82f6?style=flat-square" alt="Platform Agnostic"></a>
-  <a href="#"><img src="https://img.shields.io/badge/ai-ready-22c55e?style=flat-square" alt="AI Ready"></a>
-  <a href="#"><img src="https://img.shields.io/badge/human-validated-ef4444?style=flat-square" alt="Human Validated"></a>
+  <a href="#"><img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="License MIT"></a>
+  <a href="#"><img src="https://img.shields.io/badge/status-alpha-111111?style=flat-square" alt="Status Alpha"></a>
+  <a href="#"><img src="https://img.shields.io/badge/platform-agnostic-111111?style=flat-square" alt="Platform Agnostic"></a>
+  <a href="#"><img src="https://img.shields.io/badge/ai-ready-111111?style=flat-square" alt="AI Ready"></a>
+  <a href="#"><img src="https://img.shields.io/badge/human-validated-111111?style=flat-square" alt="Human Validated"></a>
 </p>
 
 ---
@@ -156,7 +156,11 @@ MIT — use it, fork it, remix it, ship it. The protocol is free. The honesty is
 <p align="center">
   <strong>Stop building shells. Start decomposing.</strong>
   <br><br>
-  <a href="https://twitter.com/intent/tweet?text=Decomposer%20-%20A%20cognitive%20protocol%20for%20turning%20unknown%20unknowns%20into%20known%20unknowns.%20No%20AI%20required.%20Just%20honesty.&url=https://github.com/chkev/Decomposer-Skill">Share on X/Twitter</a>
+  <a href="https://twitter.com/intent/tweet?text=Decomposer%20-%20A%20cognitive%20protocol%20for%20turning%20unknown%20unknowns%20into%20known%20unknowns.%20No%20AI%20required.%20Just%20honesty.&url=https://github.com/zbbsdsb/Decomposer-Skill&via=zbbsdsb">Share on X/Twitter</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/chkev/Decomposer-Skill">GitHub</a>
+  <a href="https://github.com/zbbsdsb/Decomposer-Skill">GitHub</a>
+</p>
+
+<p align="center">
+  Created by <a href="https://github.com/zbbsdsb">ceaserzhao</a> &nbsp;·&nbsp; MIT License
 </p>
