@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decomposer — Turn Unknown Unknowns into Known Unknowns</title>
+<meta name="description" content="A cognitive operation protocol for transforming unknown unknowns into known unknowns. Honest. Actionable. Domain-agnostic.">
+<meta property="og:title" content="Decomposer">
+<meta property="og:description" content="A cognitive protocol for turning unknown unknowns into known unknowns. No AI required. Just honesty.">
+<meta property="og:image" content="https://raw.githubusercontent.com/chkev/Decomposer-Skill/main/assets/images/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Decomposer">
+<meta name="twitter:description" content="A cognitive protocol for turning unknown unknowns into known unknowns. No AI required. Just honesty.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chkev/Decomposer-Skill/main/assets/images/og-card.jpg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --bg-card: #141414;
+    --bg-elevated: #1a1a1a;
+    --text: #f5f5f0;
+    --text-secondary: #a0a0a0;
+    --text-muted: #666;
+    --border: #2a2a2a;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --radius: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav .logo svg { width: 28px; height: 28px; }
+  nav .links { display: flex; gap: 24px; align-items: center; }
+  nav .links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav .links a:hover { color: var(--text); }
+  nav .btn-github {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  nav .btn-github:hover {
+    background: var(--border);
+    border-color: var(--text-muted);
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 800px; height: 800px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.03) 0%, rgba(234, 179, 8, 0.02) 40%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero .logo-ring {
+    width: 80px; height: 80px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .hero .logo-ring svg { width: 100%; height: 100%; }
+  .hero h1 {
+    font-size: clamp(40px, 8vw, 72px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .hero h1 .highlight-green { color: var(--green); }
+  .hero h1 .highlight-yellow { color: var(--yellow); }
+  .hero h1 .highlight-red { color: var(--red); }
+  .hero p {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+  .hero .cta-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero .cta-buttons a {
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--text);
+    color: var(--bg);
+  }
+  .btn-primary:hover { background: #ddd; transform: translateY(-1px); }
+  .btn-secondary {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-1px); }
+
+  .hero .badge-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero .badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .badge-green { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+  .badge-yellow { background: rgba(234, 179, 8, 0.15); color: var(--yellow); }
+  .badge-red { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+  .badge-blue { background: rgba(59, 130, 246, 0.15); color: var(--blue); }
+
+  /* Sections */
+  section { padding: 80px 24px; }
+  .section-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+
+  /* Problem section */
+  .problem-section {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .problem-section blockquote {
+    border-left: 3px solid var(--red);
+    padding-left: 24px;
+    margin: 24px 0;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 15px;
+  }
+
+  /* The Claim */
+  .claim-block {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin: 32px 0;
+    text-align: center;
+  }
+  .claim-block p {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .claim-block .highlight {
+    background: linear-gradient(135deg, var(--green), var(--yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Steps */
+  .steps { display: flex; flex-direction: column; gap: 16px; }
+  .step {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .step:hover { border-color: var(--text-muted); }
+  .step-indicator {
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .step-indicator.green { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+  .step-indicator.yellow { background: rgba(234, 179, 8, 0.15); color: var(--yellow); }
+  .step-indicator.red { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+  .step-content h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .step-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .step-gate {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .step-gate.red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
+
+  /* Comparison */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  @media (max-width: 640px) { .comparison-grid { grid-template-columns: 1fr; } }
+  .comparison-col {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+  .comparison-col h3 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .comparison-col.bad h3 { color: var(--red); }
+  .comparison-col.good h3 { color: var(--green); }
+  .comparison-col .item {
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .comparison-col .item:first-of-type { border-top: none; }
+  .comparison-col .item .tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .tag-red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
+  .tag-yellow { background: rgba(234, 179, 8, 0.2); color: var(--yellow); }
+  .tag-green { background: rgba(34, 197, 94, 0.2); color: var(--green); }
+  .tag-muted { background: rgba(102, 102, 102, 0.3); color: var(--text-muted); }
+
+  /* Adapters */
+  .adapter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .adapter-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s;
+  }
+  .adapter-card:hover {
+    border-color: var(--text-muted);
+    transform: translateY(-2px);
+  }
+  .adapter-card .emoji { font-size: 24px; margin-bottom: 8px; display: block; }
+  .adapter-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .adapter-card p { font-size: 12px; color: var(--text-secondary); }
+
+  /* Metrics */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  @media (max-width: 480px) { .metrics-row { grid-template-columns: 1fr; } }
+  .metric-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+  }
+  .metric-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .metric-card.green h4 { color: var(--green); }
+  .metric-card.red h4 { color: var(--red); }
+  .metric-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 48px 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  footer a { color: var(--text-secondary); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  footer .social-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  footer .social-links a {
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  footer .social-links a:hover {
+    border-color: var(--text-muted);
+    color: var(--text);
+  }
+
+  .commitment-quote {
+    font-size: 15px;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--yellow);
+    padding-left: 24px;
+    margin: 32px 0;
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* Protocol diagram inline */
+  .protocol-diagram {
+    margin: 40px 0;
+    text-align: center;
+  }
+  .protocol-diagram img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+
+  @media (max-width: 640px) {
+    nav .links a:not(.btn-github) { display: none; }
+    section { padding: 60px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">
+    <svg viewBox="0 0 64 64" fill="none">
+      <circle cx="32" cy="32" r="30" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
+      <circle cx="32" cy="32" r="20" stroke="#eab308" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="32" cy="32" r="10" stroke="#22c55e" stroke-width="2"/>
+      <circle cx="32" cy="32" r="2" fill="#22c55e"/>
+    </svg>
+    Decomposer
+  </a>
+  <div class="links">
+    <a href="#problem">Problem</a>
+    <a href="#protocol">Protocol</a>
+    <a href="#adapters">Adapters</a>
+    <a href="https://github.com/chkev/Decomposer-Skill" class="btn-github" target="_blank">GitHub</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="logo-ring">
+    <svg viewBox="0 0 64 64" fill="none">
+      <circle cx="32" cy="32" r="30" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
+      <circle cx="32" cy="32" r="20" stroke="#eab308" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="32" cy="32" r="10" stroke="#22c55e" stroke-width="2"/>
+      <circle cx="32" cy="32" r="2" fill="#22c55e"/>
+    </svg>
+  </div>
+  <h1>
+    Turn <span class="highlight-green">known</span> into<br>
+    <span class="highlight-yellow">known unknown</span> into<br>
+    <span class="highlight-red">unknown unknown</span>
+  </h1>
+  <p>A cognitive protocol for transforming unknown unknowns into known unknowns. Honest. Actionable. Domain-agnostic.</p>
+  <div class="cta-buttons">
+    <a href="https://github.com/chkev/Decomposer-Skill" class="btn-primary">View on GitHub</a>
+    <a href="#protocol" class="btn-secondary">Read the Protocol</a>
+  </div>
+  <div class="badge-row">
+    <span class="badge badge-green">MIT License</span>
+    <span class="badge badge-yellow">Platform Agnostic</span>
+    <span class="badge badge-red">AI Ready</span>
+    <span class="badge badge-blue">Human Validated</span>
+  </div>
+</section>
+
+<!-- Problem -->
+<section class="problem-section" id="problem">
+  <div class="section-inner">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Every AI-generated plan is a lie.</h2>
+    <p class="section-desc">
+      Not a malicious lie. Not a deliberate deception. But a lie nonetheless — a polished module list that mimics the shape of understanding without any of the substance. "User management. Payment system. Recommendation engine." It looks structured. It looks comprehensive. It is a <strong>shell</strong>.
+    </p>
+    <blockquote>
+      The plan didn't warn you because the plan never saw the wall. It wasn't looking.
+    </blockquote>
+    <p style="font-size: 15px; color: var(--text-secondary);">
+      <strong>Decomposer exists to force the wall into visibility before you walk into it.</strong>
+    </p>
+
+    <div class="claim-block">
+      <p>The fundamental unit of progress is the conversion of<br>
+      one <span class="highlight">unknown unknown</span> into a <span class="highlight">known unknown</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Protocol -->
+<section id="protocol">
+  <div class="section-inner">
+    <div class="section-label">The Protocol</div>
+    <h2 class="section-title">Five Steps. No AI Required.</h2>
+    <p class="section-desc">
+      The protocol runs in your head, on a whiteboard, or in a conversation. The AI skill is a convenience, not a requirement.
+    </p>
+
+    <div class="protocol-diagram">
+      <img src="assets/diagrams/protocol-flow.svg" alt="Decomposer 5-Step Protocol Diagram">
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator red">01</div>
+        <div class="step-content">
+          <h3>Honesty Fuse</h3>
+          <p>Before any analysis, state three things: what you can actually engage with, where you are blind, and how this thing most likely dies.</p>
+          <span class="step-gate red">HARD GATE</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator green">02</div>
+        <div class="step-content">
+          <h3>Uncertainty Mapping</h3>
+          <p>Classify every element into three zones. Green = Known-Known, Yellow = Known-Unknown, Red = Unknown-Unknown. If Green exceeds 70%, the map is dishonest.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator yellow">03</div>
+        <div class="step-content">
+          <h3>Hierarchical Decomposition</h3>
+          <p>Transform the flat map into a cognitive dependency tree. This is not functional decomposition — ask "What must I know before I can know X?"</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator yellow">04</div>
+        <div class="step-content">
+          <h3>Error Budget Assignment</h3>
+          <p>For each node: Confidence (how fast would failure surface?), Survival Condition (Alive if / Dead if), Lethality (what dies with it).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator red">05</div>
+        <div class="step-content">
+          <h3>Anti-Shell Self-Check</h3>
+          <p>Five hard checks: Survival Condition, Jargon, Uncertainty Ratio, Honesty, Actionability. If any fails, return to the corresponding step. Repeat until all pass.</p>
+          <span class="step-gate red">GATE KEEPER</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison -->
+    <div class="section-label" style="margin-top: 64px;">Side by Side</div>
+    <h2 class="section-title">Standard AI Plan vs. Decomposer</h2>
+    <div class="comparison-grid">
+      <div class="comparison-col bad">
+        <h3>Standard AI Plan</h3>
+        <div class="item"><span class="tag tag-muted">M5</span>"We need user authentication."</div>
+        <div class="item"><span class="tag tag-muted">M4</span>"We'll implement a recommendation engine."</div>
+        <div class="item"><span class="tag tag-muted">M3</span>"Then we can scale."</div>
+      </div>
+      <div class="comparison-col good">
+        <h3>Decomposer Output</h3>
+        <div class="item"><span class="tag tag-green">Alive</span>"User auth — Alive if 50 users register in week 1. Dead if >10% failures."</div>
+        <div class="item"><span class="tag tag-yellow">Yellow</span>"Recommendation engine — I don't know if collaborative filtering works here. Need 100 users."</div>
+        <div class="item"><span class="tag tag-red">Red</span>"Scale — I cannot see the failure mode. First probe: load test with 1000 concurrent users."</div>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="section-label" style="margin-top: 64px;">The Only Metrics</div>
+    <div class="metrics-row">
+      <div class="metric-card green">
+        <h4>Honesty</h4>
+        <p>If the output is dishonest, it is worthless. The protocol begins with a confession of limits, not a plan.</p>
+      </div>
+      <div class="metric-card red">
+        <h4>Actionability</h4>
+        <p>If it is honest but you cannot act on it, it is incomplete. Every node has a concrete first step.</p>
+      </div>
+    </div>
+
+    <div class="commitment-quote">
+      "If the best we can deliver is three honest nodes with survival conditions — three pieces of the problem that are genuinely understood and genuinely actionable — that is superior to a fifty-page plan where every module is a placeholder in disguise."
+    </div>
+  </div>
+</section>
+
+<!-- Adapters -->
+<section id="adapters" style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label">Platform Adapters</div>
+    <h2 class="section-title">One Protocol, Many Contexts</h2>
+    <p class="section-desc">The protocol is universal. Its rendering is contextual. Each adapter defines platform-specific invocation and formatting rules.</p>
+
+    <div class="adapter-grid">
+      <a href="https://github.com/chkev/Decomposer-Skill/tree/main/adapters/trae" class="adapter-card">
+        <span class="emoji">🤖</span>
+        <h4>TRAE</h4>
+        <p>AI-assistant conversation integration</p>
+      </a>
+      <a href="https://github.com/chkev/Decomposer-Skill/tree/main/adapters/twitter" class="adapter-card">
+        <span class="emoji">🐦</span>
+        <h4>Twitter</h4>
+        <p>Long-form essay structural template</p>
+      </a>
+      <a href="https://github.com/chkev/Decomposer-Skill/tree/main/adapters/team" class="adapter-card">
+        <span class="emoji">👥</span>
+        <h4>Team</h4>
+        <p>Decision-friendly meeting brief</p>
+      </a>
+      <a href="https://github.com/chkev/Decomposer-Skill/tree/main/adapters/human" class="adapter-card">
+        <span class="emoji">🧠</span>
+        <h4>Human</h4>
+        <p>Pen-and-paper physical checklist</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Start -->
+<section>
+  <div class="section-inner" style="text-align: center;">
+    <div class="section-label">Quick Start</div>
+    <h2 class="section-title">30 Seconds to Decompose</h2>
+    <p class="section-desc" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+      No installation. No dependencies. No AI required. Just a problem and the willingness to be honest about what you don't know.
+    </p>
+    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-align: left; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; line-height: 1.7; color: var(--text-secondary); margin: 0 auto; max-width: 480px;">
+      <span style="color: var(--green);">$</span> cat PROTOCOL.md<br>
+      <span style="color: var(--text-muted);"># Pick a problem — anything large, ambiguous, or scary</span><br>
+      <span style="color: var(--text-muted);"># Run the 5 steps on a whiteboard</span><br>
+      <span style="color: var(--text-muted);"># The output is an actionable uncertainty map</span><br>
+      <span style="color: var(--text-muted);"># Everything has a survival condition. Nothing is hidden.</span>
+    </div>
+    <br><br>
+    <a href="https://github.com/chkev/Decomposer-Skill" class="btn-primary" style="display: inline-block;">View on GitHub →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="social-links">
+    <a href="https://twitter.com/intent/tweet?text=Decomposer%20-%20A%20cognitive%20protocol%20for%20turning%20unknown%20unknowns%20into%20known%20unknowns.%20No%20AI%20required.%20Just%20honesty.&url=https://github.com/chkev/Decomposer-Skill" target="_blank">Share on X</a>
+    <a href="https://github.com/chkev/Decomposer-Skill" target="_blank">GitHub</a>
+  </div>
+  <p>MIT License — use it, fork it, remix it, ship it. The protocol is free. The honesty is the point.</p>
+  <p style="margin-top: 8px;">Stop building shells. <strong>Start decomposing.</strong></p>
+</footer>
+
+</body>
+</html>
