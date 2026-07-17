@@ -7,13 +7,13 @@
 <meta name="description" content="A cognitive operation protocol for transforming unknown unknowns into known unknowns. Honest. Actionable. Domain-agnostic.">
 <meta property="og:title" content="Decomposer">
 <meta property="og:description" content="A cognitive protocol for turning unknown unknowns into known unknowns. No AI required. Just honesty.">
-<meta property="og:image" content="https://raw.githubusercontent.com/chkev/Decomposer-Skill/main/assets/images/og-card.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/zbbsdsb/Decomposer-Skill/main/assets/images/og-card.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Decomposer">
 <meta name="twitter:description" content="A cognitive protocol for turning unknown unknowns into known unknowns. No AI required. Just honesty.">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/chkev/Decomposer-Skill/main/assets/images/og-card.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zbbsdsb/Decomposer-Skill/main/assets/images/og-card.svg">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
@@ -27,10 +27,10 @@
     --text-secondary: #a0a0a0;
     --text-muted: #666;
     --border: #2a2a2a;
-    --green: #22c55e;
-    --yellow: #eab308;
-    --red: #ef4444;
-    --blue: #3b82f6;
+    --green: #f5f5f5;
+    --yellow: #d4d4d4;
+    --red: #a3a3a3;
+    --blue: #b0b0b0;
     --radius: 12px;
   }
 
@@ -111,7 +111,7 @@
     top: 50%; left: 50%;
     width: 800px; height: 800px;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(34, 197, 94, 0.03) 0%, rgba(234, 179, 8, 0.02) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
     pointer-events: none;
   }
   .hero .logo-ring {
@@ -442,11 +442,12 @@
 
 <nav>
   <a href="#" class="logo">
-    <svg viewBox="0 0 64 64" fill="none">
-      <circle cx="32" cy="32" r="30" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
-      <circle cx="32" cy="32" r="20" stroke="#eab308" stroke-width="1.5" opacity="0.5"/>
-      <circle cx="32" cy="32" r="10" stroke="#22c55e" stroke-width="2"/>
-      <circle cx="32" cy="32" r="2" fill="#22c55e"/>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor">
+      <circle cx="32" cy="32" r="30" stroke-width="1"/>
+      <circle cx="32" cy="32" r="20" stroke-width="1.5"/>
+      <circle cx="32" cy="32" r="10" fill="currentColor" stroke="none"/>
+      <path d="M52 14 L44 22" stroke-width="1.5" stroke-linecap="round"/>
+      <polygon points="44,22 49,18 51,24" fill="currentColor" stroke="none"/>
     </svg>
     Decomposer
   </a>
@@ -454,18 +455,19 @@
     <a href="#problem">Problem</a>
     <a href="#protocol">Protocol</a>
     <a href="#adapters">Adapters</a>
-    <a href="https://github.com/chkev/Decomposer-Skill" class="btn-github" target="_blank">GitHub</a>
+    <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="btn-github" target="_blank">GitHub</a>
   </div>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
   <div class="logo-ring">
-    <svg viewBox="0 0 64 64" fill="none">
-      <circle cx="32" cy="32" r="30" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
-      <circle cx="32" cy="32" r="20" stroke="#eab308" stroke-width="1.5" opacity="0.5"/>
-      <circle cx="32" cy="32" r="10" stroke="#22c55e" stroke-width="2"/>
-      <circle cx="32" cy="32" r="2" fill="#22c55e"/>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor">
+      <circle cx="32" cy="32" r="30" stroke-width="1"/>
+      <circle cx="32" cy="32" r="20" stroke-width="1.5"/>
+      <circle cx="32" cy="32" r="10" fill="currentColor" stroke="none"/>
+      <path d="M52 14 L44 22" stroke-width="1.5" stroke-linecap="round"/>
+      <polygon points="44,22 49,18 51,24" fill="currentColor" stroke="none"/>
     </svg>
   </div>
   <h1>
@@ -475,7 +477,7 @@
   </h1>
   <p>A cognitive protocol for transforming unknown unknowns into known unknowns. Honest. Actionable. Domain-agnostic.</p>
   <div class="cta-buttons">
-    <a href="https://github.com/chkev/Decomposer-Skill" class="btn-primary">View on GitHub</a>
+    <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="btn-primary">View on GitHub</a>
     <a href="#protocol" class="btn-secondary">Read the Protocol</a>
   </div>
   <div class="badge-row">
@@ -606,22 +608,22 @@
     <p class="section-desc">The protocol is universal. Its rendering is contextual. Each adapter defines platform-specific invocation and formatting rules.</p>
 
     <div class="adapter-grid">
-      <a href="https://github.com/chkev/Decomposer-Skill/tree/main/adapters/trae" class="adapter-card">
+      <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/trae" class="adapter-card">
         <span class="emoji">🤖</span>
         <h4>TRAE</h4>
         <p>AI-assistant conversation integration</p>
       </a>
-      <a href="https://github.com/chkev/Decomposer-Skill/tree/main/adapters/twitter" class="adapter-card">
+      <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/twitter" class="adapter-card">
         <span class="emoji">🐦</span>
         <h4>Twitter</h4>
         <p>Long-form essay structural template</p>
       </a>
-      <a href="https://github.com/chkev/Decomposer-Skill/tree/main/adapters/team" class="adapter-card">
+      <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/team" class="adapter-card">
         <span class="emoji">👥</span>
         <h4>Team</h4>
         <p>Decision-friendly meeting brief</p>
       </a>
-      <a href="https://github.com/chkev/Decomposer-Skill/tree/main/adapters/human" class="adapter-card">
+      <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/human" class="adapter-card">
         <span class="emoji">🧠</span>
         <h4>Human</h4>
         <p>Pen-and-paper physical checklist</p>
@@ -646,14 +648,14 @@
       <span style="color: var(--text-muted);"># Everything has a survival condition. Nothing is hidden.</span>
     </div>
     <br><br>
-    <a href="https://github.com/chkev/Decomposer-Skill" class="btn-primary" style="display: inline-block;">View on GitHub →</a>
+    <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="btn-primary" style="display: inline-block;">View on GitHub →</a>
   </div>
 </section>
 
 <footer>
   <div class="social-links">
-    <a href="https://twitter.com/intent/tweet?text=Decomposer%20-%20A%20cognitive%20protocol%20for%20turning%20unknown%20unknowns%20into%20known%20unknowns.%20No%20AI%20required.%20Just%20honesty.&url=https://github.com/chkev/Decomposer-Skill" target="_blank">Share on X</a>
-    <a href="https://github.com/chkev/Decomposer-Skill" target="_blank">GitHub</a>
+    <a href="https://twitter.com/intent/tweet?text=Decomposer%20-%20A%20cognitive%20protocol%20for%20turning%20unknown%20unknowns%20into%20known%20unknowns.%20No%20AI%20required.%20Just%20honesty.&url=https://github.com/zbbsdsb/Decomposer-Skill&via=zbbsdsb" target="_blank">Share on X</a>
+    <a href="https://github.com/zbbsdsb/Decomposer-Skill" target="_blank">GitHub</a>
   </div>
   <p>MIT License — use it, fork it, remix it, ship it. The protocol is free. The honesty is the point.</p>
   <p style="margin-top: 8px;">Stop building shells. <strong>Start decomposing.</strong></p>
