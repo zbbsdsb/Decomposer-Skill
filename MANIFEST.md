@@ -34,11 +34,23 @@ This protocol will refuse to produce output that cannot survive contact with rea
 
 This protocol will make you uncomfortable. An honest uncertainty map is not a comfortable document. It has gaps. It has red zones. It has explicit statements of "I don't know." If it doesn't, it has failed.
 
+## Epistemic Status
+
+This protocol is a heuristic method, not a validated theory. The following is an honest statement of its current epistemic position:
+
+- **Confidence assignments and the 70%/30% uncertainty ratio** are empirical heuristics, not statistically calibrated thresholds. They serve as sanity checks, not measurement instruments.
+- **The protocol does not claim originality.** It integrates known practices from cognitive science (metacognition, uncertainty classification), systems engineering (error budgets, survival conditions), and decision theory (falsifiability, hypothesis-driven development). Its contribution is in the *integration and actionable structure*, not in novel concepts.
+- **No empirical validation has been performed.** The protocol's claims about its own effectiveness are currently untested. The Empirical Validation Framework in PROTOCOL.md provides concrete experiment designs for testing those claims. Until such validation exists, the protocol should be treated as a useful heuristic, not a proven methodology.
+- **The protocol is not a replacement for domain expertise.** It structures thinking; it does not supply the substance. Its practical value depends heavily on the depth of the user's domain knowledge. A novice will produce a lower-quality uncertainty map than an expert, not because the protocol is flawed, but because the protocol cannot manufacture insight.
+- **The protocol is a red-teaming tool, not a production process.** Its highest value is in catching bad plans, not in producing good ones. Use it accordingly.
+
+This epistemic status section is itself an application of the Honesty Fuse (Step 1): the protocol confessing its own limits before offering its analysis. It will be updated as empirical evidence accumulates.
+
 ## The Shape of the Output
 
 The protocol does not produce reports. It produces **actionable uncertainty maps** — structures where every node tells you what to do, what you don't know, and what happens if you're wrong.
 
-The map adapts to the cognitive position of the person using it. A technical architect gets heat maps and dynamic node trees. A non-technical founder gets human-equivalence plans and seven-day test chains. A decision-maker gets three cards that tell them exactly where to place their next bet. A research thinker gets falsifiability stacks and error budgets that make uncertainty mathematically biddable.
+The map adapts to the cognitive position of the person using it. A technical architect gets heat maps and dynamic node trees. A non-technical founder gets human-equivalence plans and seven-day test chains. A decision-maker gets three cards that tell them exactly where to place their next bet. An MIT scholar gets falsifiability stacks and error budgets that make uncertainty mathematically biddable.
 
 Same protocol. Different manifestations. The principle does not change; the flesh does.
 

@@ -38,10 +38,7 @@ Step 5 — Self-Check
 □ Repeat until all pass
 ```
 
-## Time Estimate
-
-- First pass: ~1 hour for a moderately complex project
-- Subsequent iterations: 15-30 minutes
+**Time estimate**: 1 hour with a whiteboard, sticky notes, and a partner. For simple projects, reduce to 15 minutes using only Step 5 (Anti-Shell Self-Check). For complex projects, see `references/SCALE_GUIDE.md` for the appropriate granularity.
 
 ## What This Proves
 

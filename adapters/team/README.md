@@ -10,10 +10,13 @@ One-page structured summary.
 
 ## Structure
 
-1. **Three things we know** (Green zones — no discussion needed)
-2. **Three things we don't know** (Yellow zones — assign owners and deadlines)
-3. **One thing that could kill us** (the most critical unknown — needs dedicated probe)
-4. **First action** (who does what by when)
+**Structure**: The one-pager should contain three sections:
+1. **What we know** (Green): things we can act on today.
+2. **What we don't know** (Yellow): things we need to research or test.
+3. **What we can't see** (Red): things we need to design experiments for.
+4. **First action**: the single most important step to take this week.
+
+If the project is large (team/quarterly scope or larger), refer to `references/SCALE_GUIDE.md` for guidance on how to decompose by subdomain rather than attempting a single mapping.
 
 ## Constraints
 

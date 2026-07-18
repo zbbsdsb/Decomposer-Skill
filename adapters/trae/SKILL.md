@@ -37,6 +37,17 @@ The five-step protocol is defined in `../../PROTOCOL.md`. Execute it faithfully.
 |------|---------|
 | `../../PROTOCOL.md` | Full five-step protocol definition |
 | `../../SKILL.md` | Universal skill definition |
-| `../../references/COGNITIVE_POSITIONS.md` | Position detection |
+| `../../references/COGNITIVE_POSITIONS.md` | Position detection (includes MIT Scholar) |
 | `../../references/OUTPUT_CONTEXTS.md` | Context rendering rules |
 | `../../references/ANTI_SHELL_CHECKLIST.md` | Self-check checklist |
+| `../../references/SCALE_GUIDE.md` | Scale adaptation guide |
+| `../../references/COMMON_PITFALLS.md` | Common execution errors |
+| `../../VALIDATION.md` | Empirical validation roadmap |
+| `../../TUTORIAL.md` | Beginner tutorial |
+| `../../references/PROBE_TOOLKIT.md` | Probe toolkit for finding unknown unknowns |
+| `../../references/FALSIFIABILITY_WHITEPAPER_TEMPLATE.md` | Falsifiability Whitepaper fill-in template |
+| `../../references/ERROR_BUDGET_SPEC_TEMPLATE.md` | Error Budget Specification fill-in template |
+| `../../references/ZERO_CODE_VALIDATION_TEMPLATE.md` | Zero-code validation template |
+| `../../references/SEVEN_DAY_TEST_CHAIN_TEMPLATE.md` | 7-day lethal test chain template |
+| `../../references/DECISION_CARDS_WORKSHEET.md` | Three decision cards worksheet |
+| `../../references/QUICK_REFERENCE_CARD.md` | Single-page protocol cheat sheet |

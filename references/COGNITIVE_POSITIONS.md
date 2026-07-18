@@ -13,7 +13,7 @@ The Decomposer protocol recognizes four cognitive prototypes. A real user may oc
 | Technical Architect | Technical feasibility & system integrity | Dynamic node tree with uncertainty overlays |
 | Non-technical Founder | No coding ability, limited research bandwidth | Human-equivalence plans & test chains |
 | Decision-maker | Capital allocation, limited time | Three decision cards (fatal assumption, resource leverage, minimum sellable unit) |
-| Research Thinker | Intellectual rigor, falsifiability | Falsifiability stacks & error budgets |
+| MIT Scholar | Intellectual rigor, falsifiability | Falsifiability stacks & error budgets |
 
 ---
 
@@ -27,7 +27,7 @@ Q1: "Can you write code to build this yourself?"
   └── No  → Q2
 
 Q2: "Is your primary concern whether this idea is technically possible?"
-  ├── Yes → Research Thinker
+  ├── Yes → MIT Scholar
   └── No  → Q3
 
 Q3: "Are you allocating capital or making go/no-go decisions?"
@@ -47,7 +47,7 @@ Q4: "Do you have a vision but no technical team or research bandwidth?"
 
 Each protocol step produces different output depending on the user's cognitive position.
 
-| Step | Technical Architect | Non-technical Founder | Decision-maker | Research Thinker |
+| Step | Technical Architect | Non-technical Founder | Decision-maker | MIT Scholar |
 |------|-------------------|----------------------|----------------|-----------------|
 | **1. Honesty Fuse** | "I can map technical dependencies but cannot validate market demand." | "I can help you test the idea without writing code, but cannot tell you if it scales." | "I can translate your vision into 3 questions for a CTO, but cannot decide for you." | "I can help write the theorem that kills this direction in 3 days, but cannot predict the outcome." |
 | **2. Uncertainty Map** | System blueprint with uncertainty overlays | Survival chart: what you can do manually vs. what needs testing | Investment risk matrix with capital-at-stake estimates | Falsifiability stack: what's provable, what's testable, what's unformulable |

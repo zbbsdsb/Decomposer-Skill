@@ -92,13 +92,17 @@ The protocol is universal. Its rendering is contextual.
 
 ## Read These Files
 
-| File | What It Is |
-|------|-----------|
-| [`MANIFEST.md`](MANIFEST.md) | Philosophy and commitment. Start here. |
-| [`PROTOCOL.md`](PROTOCOL.md) | The full five-step protocol. The core. |
-| [`FIELD_GUIDE.md`](FIELD_GUIDE.md) | Application annotations. How the protocol surfaces. |
-| [`SKILL.md`](SKILL.md) | Platform-agnostic skill definition. |
-| [`references/`](references/) | Shared reference files (position routing, output rules, checklist). |
+| File | Purpose |
+|------|---------|
+| [PROTOCOL.md](PROTOCOL.md) | Full five-step protocol with complete end-to-end example |
+| [MANIFEST.md](MANIFEST.md) | Philosophy, commitments, and epistemic status |
+| [FIELD_GUIDE.md](FIELD_GUIDE.md) | Application annotations for TRAE, Twitter, human, and general contexts |
+| [SKILL.md](SKILL.md) | Platform-agnostic skill definition |
+| [VALIDATION.md](VALIDATION.md) | Empirical validation roadmap and experiment designs |
+| [TUTORIAL.md](TUTORIAL.md) | Step-by-step beginner tutorial with a worked example |
+| [references/](references/) | Cognitive position detection, output contexts, scale guide, common pitfalls, standalone templates |
+| [adapters/](adapters/) | Platform-specific adapters (TRAE, Twitter, Team, Human) |
+| [docs/](docs/) | GitHub Pages site (Swiss Style) |
 
 ## The Commitment
 
