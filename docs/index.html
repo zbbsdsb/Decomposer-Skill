@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DECOMPOSER — Turn Unknown Unknowns into Known Unknowns</title>
+<title>The Decomposer Protocol: A Cognitive Operation for Transforming Unknown Unknowns into Known Unknowns</title>
 <meta name="description" content="A cognitive operation protocol for transforming unknown unknowns into known unknowns. Honest. Actionable. Domain-agnostic.">
-<meta property="og:title" content="DECOMPOSER">
-<meta property="og:description" content="A cognitive protocol for turning unknown unknowns into known unknowns. No AI required. Just honesty.">
+<meta property="og:title" content="The Decomposer Protocol">
+<meta property="og:description" content="A cognitive protocol for transforming unknown unknowns into known unknowns. No AI required. Just honesty.">
 <meta property="og:image" content="https://raw.githubusercontent.com/zbbsdsb/Decomposer-Skill/main/assets/images/og-card.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="DECOMPOSER">
-<meta name="twitter:description" content="A cognitive protocol for turning unknown unknowns into known unknowns. No AI required. Just honesty.">
+<meta name="twitter:title" content="The Decomposer Protocol">
+<meta name="twitter:description" content="A cognitive protocol for transforming unknown unknowns into known unknowns. No AI required. Just honesty.">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zbbsdsb/Decomposer-Skill/main/assets/images/og-card.svg">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,6 +25,7 @@
     --gray-10: #E5E5E5;
     --gray-5: #F5F5F5;
     --font: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    --mono: 'SF Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace;
     --max-w: 1200px;
     --col-gap: 24px;
     --space-xs: 8px;
@@ -71,7 +72,8 @@
 
   /* Hero */
   .hero { padding: 160px 0 96px; }
-  .hero h1 { font-size: clamp(48px, 8vw, 80px); font-weight: 700; letter-spacing: -1px; line-height: 1.05; margin-bottom: var(--space-md); }
+  .hero .label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gray-50); margin-bottom: var(--space-sm); }
+  .hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 700; letter-spacing: -1px; line-height: 1.08; margin-bottom: var(--space-md); max-width: 900px; }
   .hero .rule { width: 60px; height: 2px; background: var(--black); margin-bottom: var(--space-md); }
   .hero .sub { font-size: 18px; color: var(--gray-50); line-height: 1.5; margin-bottom: var(--space-lg); max-width: 600px; }
   .hero .ctas { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -85,21 +87,27 @@
   .hero .tags span::after { content: ''; display: inline-block; width: 1px; height: 10px; background: var(--gray-20); margin-left: 16px; }
   .hero .tags span:last-child::after { display: none; }
 
-  /* Sections */
+  /* Section common */
   section { padding: 96px 0; }
   section + section { border-top: none; }
   .section-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gray-50); margin-bottom: var(--space-sm); }
   .section-title { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: var(--space-sm); line-height: 1.2; }
   .section-desc { font-size: 15px; color: var(--gray-50); line-height: 1.7; }
-  .section-rule { width: 40px; height: 1px; background: var(--gray-20); margin: var(--space-lg) 0; }
 
-  /* Problem section */
+  /* Problem */
   .problem-block { margin: var(--space-lg) 0; }
   .problem-block p { font-size: 15px; line-height: 1.8; color: var(--gray-50); margin-bottom: var(--space-md); }
   .problem-block p strong { color: var(--black); }
   .problem-block blockquote { border-left: 2px solid var(--black); padding-left: var(--space-md); margin: var(--space-md) 0; font-size: 16px; font-weight: 600; line-height: 1.5; color: var(--black); }
   .claim-block { border: 1px solid var(--black); padding: var(--space-lg); margin: var(--space-lg) 0; }
   .claim-block p { font-size: 18px; font-weight: 700; line-height: 1.5; margin: 0; color: var(--black); }
+
+  /* Definition block */
+  .def-block { margin: var(--space-lg) 0; }
+  .def-block .def-item { padding: var(--space-md) 0; border-bottom: 1px solid var(--gray-10); }
+  .def-block .def-item:last-child { border-bottom: none; }
+  .def-block .def-term { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+  .def-block .def-body { font-size: 13px; color: var(--gray-50); line-height: 1.7; }
 
   /* Steps */
   .steps { margin-top: var(--space-lg); }
@@ -145,12 +153,12 @@
   .adapter-item h4 { font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
   .adapter-item p { font-size: 11px; color: var(--gray-50); line-height: 1.5; }
 
-  /* Protocol diagram */
+  /* Diagram */
   .diagram-wrap { margin: var(--space-lg) 0; }
   .diagram-wrap img { max-width: 100%; height: auto; border: 1px solid var(--black); display: block; }
 
-  /* Quick start */
-  .code-block { border: 1px solid var(--black); padding: var(--space-md); font-family: 'SF Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace; font-size: 13px; line-height: 1.8; color: var(--gray-50); margin: var(--space-md) 0; }
+  /* Code block */
+  .code-block { border: 1px solid var(--black); padding: var(--space-md); font-family: var(--mono); font-size: 13px; line-height: 1.8; color: var(--gray-50); margin: var(--space-md) 0; }
   .code-block .prompt { color: var(--black); }
   .code-block .comment { color: var(--gray-20); }
 
@@ -160,6 +168,10 @@
   .commitment p:last-child { margin-bottom: 0; }
   .commitment strong { color: var(--black); }
 
+  /* Inline SVG arrow */
+  .svg-arrow { display: inline; vertical-align: baseline; }
+  .svg-arrow svg { width: 14px; height: 12px; vertical-align: middle; }
+
   /* Footer */
   footer { padding: var(--space-lg) 0; border-top: 1px solid var(--black); text-align: center; }
   footer .links { display: flex; gap: var(--space-md); justify-content: center; margin-bottom: var(--space-sm); }
@@ -167,7 +179,6 @@
   footer .links a:hover { opacity: 0.5; }
   footer p { font-size: 12px; color: var(--gray-50); }
 
-  /* Responsive */
   @media (max-width: 768px) {
     nav .links a:not(.btn-gh) { display: none; }
     section { padding: var(--space-lg) 0; }
@@ -193,9 +204,11 @@
       <span>DECOMPOSER</span>
     </a>
     <div class="links">
-      <a href="#problem">PROBLEM</a>
-      <a href="#protocol">PROTOCOL</a>
-      <a href="#adapters">ADAPTERS</a>
+      <a href="#s1">1.0</a>
+      <a href="#s2">2.0</a>
+      <a href="#s3">3.0</a>
+      <a href="#s4">4.0</a>
+      <a href="#s5">5.0</a>
       <a href="demo.html">DEMO</a>
       <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="btn-gh" target="_blank">GITHUB</a>
     </div>
@@ -206,12 +219,13 @@
 <section class="hero">
   <div class="grid">
     <div class="col-span-8 col-start-2">
-      <h1>TURN UNKNOWN UNKNOWNS INTO KNOWN UNKNOWNS</h1>
+      <div class="label">THE DECOMPOSER PROTOCOL</div>
+      <h1>A Cognitive Operation for Transforming Unknown Unknowns into Known Unknowns</h1>
       <div class="rule"></div>
-      <p class="sub">A cognitive protocol for decomposing any large, ambiguous goal into an actionable uncertainty map. Honest. Actionable. Domain-agnostic.</p>
+      <p class="sub">A five-step epistemic protocol for decomposing any large, ambiguous goal into an actionable uncertainty map. Domain-agnostic. No AI required.</p>
       <div class="ctas">
         <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="cta-primary">VIEW ON GITHUB</a>
-        <a href="#protocol" class="cta-secondary">READ THE PROTOCOL</a>
+        <a href="#s2" class="cta-secondary">READ THE PROTOCOL</a>
       </div>
       <div class="tags">
         <span>MIT LICENSE</span>
@@ -223,17 +237,17 @@
   </div>
 </section>
 
-<!-- Problem -->
-<section id="problem">
+<!-- 1.0 Problem Statement -->
+<section id="s1">
   <div class="grid">
     <div class="col-span-8 col-start-2">
-      <div class="section-label">THE PROBLEM</div>
-      <h2 class="section-title">Every AI-generated plan is a lie.</h2>
+      <div class="section-label">1.0 PROBLEM STATEMENT</div>
+      <h2 class="section-title">The Shell Problem</h2>
       <div class="problem-block">
-        <p>Not a malicious lie. Not a deliberate deception. But a lie nonetheless — a polished module list that mimics the shape of understanding without any of the substance. "User management. Payment system. Recommendation engine." It looks structured. It looks comprehensive. It is a <strong>shell</strong>.</p>
-        <p>The shell looks like progress. It feels like clarity. But the moment you try to act on it, you hit a wall that was invisible in the plan — a dependency nobody mentioned, an assumption that was false, a constraint that makes the entire architecture untenable.</p>
-        <blockquote>The plan didn't warn you because the plan never saw the wall. It wasn't looking.</blockquote>
-        <p><strong>Decomposer exists to force the wall into visibility before you walk into it.</strong></p>
+        <p>Large language models, when asked to produce a plan for an ambiguous goal, generate output that has the <strong>structure</strong> of understanding without its <strong>substance</strong>. We call this a <em>shell</em>: a module list that mimics the shape of a plan. "User management. Payment system. Recommendation engine." It looks complete. It is not.</p>
+        <p>The shell problem arises from a fundamental mismatch between the model's training objective (plausible next-token prediction) and the user's epistemic need (identification of unknown unknowns). The model produces a plan that is <strong>syntactically coherent</strong> but <strong>epistemically hollow</strong>. The missing information is not absent by design; it is invisible to the model because the model has never encountered the specific failure mode.</p>
+        <blockquote>The shell looks like progress. It feels like clarity. But the moment you try to act on it, you hit a wall that was invisible in the plan. The plan did not warn you because the plan never saw the wall.</blockquote>
+        <p>This is not a failure of intelligence. It is a failure of <strong>epistemic structure</strong>. The standard planning format does not enforce the identification of what is not known. The Decomposer Protocol exists to correct this structural gap.</p>
       </div>
       <div class="claim-block">
         <p>The fundamental unit of progress is not a feature, a module, or a milestone. It is the conversion of one unknown unknown into a known unknown.</p>
@@ -242,13 +256,13 @@
   </div>
 </section>
 
-<!-- Protocol -->
-<section id="protocol" style="background: var(--gray-5);">
+<!-- 2.0 The Protocol -->
+<section id="s2" style="background: var(--gray-5);">
   <div class="grid">
     <div class="col-span-8 col-start-2">
-      <div class="section-label">THE PROTOCOL</div>
-      <h2 class="section-title">Five Steps. No AI Required.</h2>
-      <p class="section-desc">The protocol runs in your head, on a whiteboard, or in a conversation. The AI skill is a convenience, not a requirement.</p>
+      <div class="section-label">2.0 THE PROTOCOL</div>
+      <h2 class="section-title">A Five-Step Cognitive Operation</h2>
+      <p class="section-desc">The protocol is a transferable, domain-agnostic procedure. It runs in the human mind, on a whiteboard, or in an AI-assisted conversation. The AI skill is a convenience, not a requirement. The core insight is that <strong>plans fail not because of poor execution, but because of unexamined epistemic dependencies</strong>.</p>
     </div>
   </div>
   <div class="grid">
@@ -256,141 +270,175 @@
       <div class="diagram-wrap">
         <img src="../assets/diagrams/protocol-flow.svg" alt="Decomposer 5-Step Protocol Diagram">
       </div>
+
+      <h3 style="font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: var(--space-lg); margin-bottom: var(--space-sm);">Core Definitions</h3>
+      <div class="def-block">
+        <div class="def-item">
+          <div class="def-term">Unknown Unknown</div>
+          <div class="def-body">A condition the agent cannot formulate as a question. The agent is unaware that the gap exists. Example: before a load test, the agent does not know that concurrent user capacity is a constraint. The failure mode is invisible until tested.</div>
+        </div>
+        <div class="def-item">
+          <div class="def-term">Known Unknown</div>
+          <div class="def-body">A question the agent can name but cannot yet answer. Example: "Will users pay for this?" The agent knows this is an open question and can design a probe for it.</div>
+        </div>
+        <div class="def-item">
+          <div class="def-term">Known Known</div>
+          <div class="def-body">A claim the agent can act on with confidence. Example: "The database schema supports the required queries." The agent has evidence and can proceed.</div>
+        </div>
+        <div class="def-item">
+          <div class="def-term">Survival Condition</div>
+          <div class="def-body">A falsifiable pair of criteria: "Alive if: [measurable state]. Dead if: [measurable state]." Every node in the decomposition must have one. A node without a survival condition is a shell, not a plan element.</div>
+        </div>
+        <div class="def-item">
+          <div class="def-term">Shell</div>
+          <div class="def-body">A statement that mimics the structure of knowledge without containing it. Example: "We will implement a recommendation engine." This is a shell because it names a component without surfacing the epistemic dependencies (e.g., "Does collaborative filtering work for this domain?").</div>
+        </div>
+      </div>
+
       <div class="steps">
         <div class="step">
           <div class="step-header">
             <span class="step-num">STEP 01</span>
-            <span class="step-title">HONESTY FUSE</span>
+            <span class="step-title">Honesty Fuse</span>
             <span class="step-gate">HARD GATE</span>
           </div>
-          <p class="step-desc">Before any analysis, state three things: what you can actually engage with, where you are blind, and how this thing most likely dies. No module lists. No false comfort. <strong>The first honest act is refusing premature reassurance.</strong></p>
+          <p class="step-desc">Before any analysis, the executor must state three declarations: (1) what they can actually engage with given the information provided, (2) specific statements about where they are blind, and (3) the single most probable collapse mode of the undertaking. <strong>The first honest act is refusing premature reassurance.</strong> No module lists, no feature breakdowns, no solution proposals, no false comfort of any kind. If the user reacts negatively to this step, the standard response is to explain that the first honest act is refusing premature reassurance. If the user insists on a standard plan, exit the protocol.</p>
         </div>
         <div class="step">
           <div class="step-header">
             <span class="step-num">STEP 02</span>
-            <span class="step-title">UNCERTAINTY MAPPING</span>
+            <span class="step-title">Uncertainty Mapping</span>
           </div>
-          <p class="step-desc">Classify every element into three zones: <strong>Green</strong> (Known-Known), <strong>Yellow</strong> (Known-Unknown), <strong>Red</strong> (Unknown-Unknown). If Green exceeds 70% of all mapped elements, the mapping is dishonest.</p>
+          <p class="step-desc">Classify every identifiable element into one of three zones. <strong>Green</strong> (Known-Known): could act on this right now and be confident the action is correct. <strong>Yellow</strong> (Known-Unknown): know a question exists but cannot answer it yet. <strong>Red</strong> (Unknown-Unknown): cannot even formulate the question. The 70% Rule is an empirical heuristic: if Green exceeds 70% of all mapped elements, the mapping is dishonest and must be redone from Step 1. Each element must pass the quick test: "Could I write down the next action for this right now, and be confident it is correct?" Yes = Green. I know what to figure out but have not = Yellow. Not even sure what question to ask = Red.</p>
         </div>
         <div class="step">
           <div class="step-header">
             <span class="step-num">STEP 03</span>
-            <span class="step-title">HIERARCHICAL DECOMPOSITION</span>
+            <span class="step-title">Hierarchical Decomposition</span>
           </div>
-          <p class="step-desc">Transform the flat map into a cognitive dependency tree. This is <strong>not</strong> functional decomposition. Ask: "What must I know before I can know X?" Identify root unknowns, apply the dependency test, and prune the tree.</p>
+          <p class="step-desc">Transform the flat uncertainty map into a <strong>cognitive dependency tree</strong>. This is epistemic decomposition, not functional decomposition. The critical distinction: functional decomposition asks "What are the parts?" while cognitive decomposition asks "What do I need to know first?" For each pair of elements (A, B): if A remains unknown, can B still be meaningfully addressed? If no, A is a dependency of B. Each element receives three attributes: (1) Survival Condition: what must be true for this to survive, (2) Lethality: if this dies, what else dies with it, (3) Persistence: can this remain unresolved forever and the project still partially survive? Nodes are classified as Executable (survival conditions met), Pending Validation (know what information would resolve this), or Blind Zone (cannot formulate what "resolved" looks like).</p>
         </div>
         <div class="step">
           <div class="step-header">
             <span class="step-num">STEP 04</span>
-            <span class="step-title">ERROR BUDGET ASSIGNMENT</span>
+            <span class="step-title">Error Budget Assignment</span>
           </div>
-          <p class="step-desc">For each node: <strong>Confidence</strong> (how fast would failure surface?), <strong>Survival Condition</strong> (Alive if / Dead if), <strong>Lethality</strong> (what dies with it). A node with High confidence but no written survival condition is automatically downgraded to Low.</p>
+          <p class="step-desc">Every node receives three attributes. <strong>Confidence</strong>: how fast would failure surface? High (hours/days), Medium (weeks), Low (months), or Zero (guessing). <strong>Survival Condition</strong>: a falsifiable pair of criteria. <strong>Lethality</strong>: a specific list of downstream nodes that die if this node dies. A hard constraint applies: a node with "High" confidence but no written survival condition is automatically downgraded to "Low." No exceptions. This ensures that confidence is grounded in testable criteria, not intuition.</p>
         </div>
         <div class="step">
           <div class="step-header">
             <span class="step-num">STEP 05</span>
-            <span class="step-title">ANTI-SHELL SELF-CHECK</span>
+            <span class="step-title">Anti-Shell Self-Check</span>
             <span class="step-gate">GATE KEEPER</span>
           </div>
-          <p class="step-desc">Five hard checks: Survival Condition, Jargon, Uncertainty Ratio, Honesty, Actionability. If any fails, return to the corresponding step. <strong>Repeat until all pass.</strong></p>
+          <p class="step-desc">Five hard checks. <strong>Check 1 (Survival Condition)</strong>: every node must have an "Alive if" / "Dead if" pair. <strong>Check 2 (Jargon)</strong>: output must be free of phrases that consume space without creating knowledge (e.g., "leverage best practices", "robust architecture"). <strong>Check 3 (Uncertainty Ratio)</strong>: Yellow + Red must be at least 30% of all nodes; if below, the protocol is producing shells. <strong>Check 4 (Honesty)</strong>: there must be at least one explicit, unhidden "I don't know" in the output. <strong>Check 5 (Actionability)</strong>: the first concrete step must be identifiable in one sentence. If any check fails, return to the corresponding step. <strong>Repeat until all pass.</strong></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Comparison -->
-<section>
+<!-- 3.0 Comparative Analysis -->
+<section id="s3">
   <div class="grid">
     <div class="col-span-10 col-start-2">
-      <div class="section-label">SIDE BY SIDE</div>
-      <h2 class="section-title">Standard AI Plan vs. Decomposer</h2>
+      <div class="section-label">3.0 COMPARATIVE ANALYSIS</div>
+      <h2 class="section-title">Standard AI Plan vs. Decomposer Output</h2>
+      <p class="section-desc">The following table contrasts a standard AI-generated plan with the equivalent Decomposer output for the same request. The difference is not in the modules named, but in the epistemic structure: the Decomposer output surfaces survival conditions, uncertainty zones, and dependency relationships that the standard plan suppresses.</p>
       <div class="comp-grid">
         <div class="comp-col">
           <h3>STANDARD AI PLAN</h3>
           <div class="item"><span class="tag tag-red">M5</span>"We need user authentication."</div>
-          <div class="item"><span class="tag tag-red">M4</span>"We'll implement a recommendation engine."</div>
+          <div class="item"><span class="tag tag-red">M4</span>"We will implement a recommendation engine."</div>
           <div class="item"><span class="tag tag-red">M3</span>"Then we can scale."</div>
+          <div class="item" style="color: var(--gray-20); font-style: italic;">No caveats. No conditions. No uncertainty zones. The output is structurally confident but epistemically empty.</div>
         </div>
         <div class="comp-col">
           <h3>DECOMPOSER OUTPUT</h3>
-          <div class="item"><span class="tag tag-green">ALIVE</span>"User auth — Alive if 50 users register in week 1. Dead if &gt;10% failures."</div>
-          <div class="item"><span class="tag tag-yellow">YELLOW</span>"Recommendation engine — I don't know if collaborative filtering works here. Need 100 users of behavior data."</div>
-          <div class="item"><span class="tag tag-red">RED</span>"Scale — I cannot see the failure mode. First probe: load test with 1000 concurrent users."</div>
+          <div class="item"><span class="tag tag-green">ALIVE</span>"User auth. Alive if 50 users register in week 1. Dead if more than 10% login failures."</div>
+          <div class="item"><span class="tag tag-yellow">YELLOW</span>"Recommendation engine. I do not know if collaborative filtering works here. Need 100 users of behavior data to test the hypothesis."</div>
+          <div class="item"><span class="tag tag-red">RED</span>"Scale. I cannot see the failure mode. First probe: load test with 1000 concurrent users."</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Metrics -->
-<section>
+<!-- 4.0 Evaluation Metrics -->
+<section id="s4" style="background: var(--gray-5);">
   <div class="grid">
     <div class="col-span-10 col-start-2">
-      <div class="section-label">THE ONLY METRICS</div>
+      <div class="section-label">4.0 EVALUATION METRICS</div>
       <h2 class="section-title">Honesty and Actionability</h2>
+      <p class="section-desc">The protocol evaluates its own output on two dimensions. These are not optimistic metrics; they are hard constraints. Any output that fails either metric is rejected and must be re-executed.</p>
       <div class="metrics">
         <div class="metric">
           <h4>HONESTY</h4>
-          <p>If the output is dishonest, it is worthless. The protocol begins with a confession of limits, not a plan. Every node must have an explicit survival condition.</p>
+          <p>If the output is dishonest, it is worthless. The protocol enforces honesty structurally: Step 1 requires a confession of limits before any analysis, Step 2 requires uncertainty classification, and Step 5 requires an explicit "I don't know." Every node must have a survival condition. A plan without a survival condition is a shell, not a plan.</p>
         </div>
         <div class="metric">
           <h4>ACTIONABILITY</h4>
-          <p>If it is honest but you cannot act on it, it is incomplete. Every node must have a concrete first step. The protocol ends with a single sentence: "Do this first."</p>
+          <p>If the output is honest but you cannot act on it, it is incomplete. Every node must have a concrete first step. The protocol ends with a single sentence: "Do this first." The actionability check (Step 5, Check 5) ensures that the output is not merely a diagnosis but a guide to the next action.</p>
         </div>
       </div>
       <div class="commitment">
-        <p>"If the best we can deliver is three honest nodes with survival conditions — three pieces of the problem that are genuinely understood and genuinely actionable — that is superior to a fifty-page plan where every module is a placeholder in disguise."</p>
-        <p><strong>The fifty-page plan gives you the feeling of progress. The three honest nodes give you the fact of progress.</strong></p>
+        <p>If the best we can deliver is three honest nodes with survival conditions -- three pieces of the problem that are genuinely understood and genuinely actionable -- that is superior to a fifty-page plan where every module is a placeholder in disguise.</p>
+        <p><strong>The fifty-page plan gives you the feeling of progress. The three honest nodes give you the fact of progress.</strong> The feeling evaporates on contact with reality. The fact survives.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Adapters -->
-<section id="adapters" style="background: var(--gray-5);">
+<!-- 5.0 Platform Adapters -->
+<section id="s5">
   <div class="grid">
     <div class="col-span-10 col-start-2">
-      <div class="section-label">PLATFORM ADAPTERS</div>
-      <h2 class="section-title">One Protocol, Many Contexts</h2>
-      <p class="section-desc">The protocol is universal. Its rendering is contextual. Each adapter defines platform-specific invocation and formatting rules.</p>
+      <div class="section-label">5.0 PLATFORM ADAPTERS</div>
+      <h2 class="section-title">One Protocol, Multiple Contexts</h2>
+      <p class="section-desc">The protocol is universal. Its rendering is contextual. Each adapter defines platform-specific invocation rules, formatting conventions, and output constraints. The core logic remains identical across all adapters.</p>
       <div class="adapter-grid">
         <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/trae" class="adapter-item">
           <h4>TRAE</h4>
-          <p>AI-assistant conversation integration</p>
+          <p>AI-assistant conversation integration. The skill file is discovered automatically by TRAE.</p>
         </a>
         <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/twitter" class="adapter-item">
           <h4>TWITTER</h4>
-          <p>Long-form essay structural template</p>
+          <p>Long-form essay structural template. Designed for public dissemination of the protocol.</p>
         </a>
         <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/team" class="adapter-item">
           <h4>TEAM</h4>
-          <p>Decision-friendly meeting brief</p>
+          <p>Decision-friendly meeting brief. Optimized for synchronous group deliberation.</p>
         </a>
         <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/human" class="adapter-item">
           <h4>HUMAN</h4>
-          <p>Pen-and-paper physical checklist</p>
+          <p>Pen-and-paper physical checklist. The protocol as a printable card.</p>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Quick Start -->
-<section>
+<!-- 6.0 Quick Start -->
+<section id="s6" style="background: var(--gray-5);">
   <div class="grid">
     <div class="col-span-6 col-start-4" style="text-align: center;">
-      <div class="section-label">QUICK START</div>
+      <div class="section-label">6.0 QUICK START</div>
       <h2 class="section-title">30 Seconds to Decompose</h2>
-      <p class="section-desc">No installation. No dependencies. No AI required. Just a problem and the willingness to be honest about what you don't know.</p>
+      <p class="section-desc">No installation. No dependencies. No AI required. Read the protocol file, pick a problem, and run the five steps on a whiteboard. The output is an actionable uncertainty map where every node has a survival condition.</p>
       <div class="code-block" style="text-align: left;">
         <span class="prompt">$</span> cat PROTOCOL.md<br>
-        <span class="comment"># Pick a problem — anything large, ambiguous, or scary</span><br>
-        <span class="comment"># Run the 5 steps on a whiteboard</span><br>
-        <span class="comment"># The output is an actionable uncertainty map</span><br>
+        <span class="comment"># Pick a problem. Anything large, ambiguous, or scary.</span><br>
+        <span class="comment"># Run the five steps on a whiteboard.</span><br>
+        <span class="comment"># The output is an actionable uncertainty map.</span><br>
         <span class="comment"># Everything has a survival condition. Nothing is hidden.</span>
       </div>
-      <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="cta-primary" style="display: inline-block; padding: 12px 28px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; background: var(--black); color: var(--white); border: 1px solid var(--black); margin-top: var(--space-sm);">VIEW ON GITHUB →</a>
+      <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="cta-primary" style="display: inline-block; padding: 12px 28px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; background: var(--black); color: var(--white); border: 1px solid var(--black); margin-top: var(--space-sm);">
+        VIEW ON GITHUB&nbsp;
+        <svg width="14" height="12" viewBox="0 0 14 12" fill="none" style="vertical-align: middle;">
+          <line x1="1" y1="6" x2="11" y2="6" stroke="#FFFFFF" stroke-width="1.5"/>
+          <polyline points="7,2 11,6 7,10" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
@@ -401,7 +449,7 @@
     <a href="https://github.com/zbbsdsb/Decomposer-Skill/blob/main/PROTOCOL.md" target="_blank">PROTOCOL</a>
     <a href="https://github.com/zbbsdsb/Decomposer-Skill/blob/main/CONTRIBUTING.md" target="_blank">CONTRIBUTE</a>
   </div>
-  <p>MIT LICENSE — USE IT, FORK IT, REMIX IT, SHIP IT. THE PROTOCOL IS FREE. THE HONESTY IS THE POINT.</p>
+  <p>MIT LICENSE. USE IT, FORK IT, REMIX IT, SHIP IT. THE PROTOCOL IS FREE. THE HONESTY IS THE POINT.</p>
   <p style="margin-top: 8px; font-weight: 700;">STOP BUILDING SHELLS. START DECOMPOSING.</p>
 </footer>
 
