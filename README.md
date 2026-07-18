@@ -1,26 +1,22 @@
 <p align="center">
-  <img src="assets/images/logo-horizontal.svg" alt="Decomposer" width="400">
+  <img src="assets/images/logo-horizontal.svg" alt="DECOMPOSER" width="400">
 </p>
 
 <p align="center">
   <strong>A cognitive operation protocol for transforming unknown unknowns into known unknowns.</strong>
-</p>
-
-<p align="center">
+  <br>
   <em>Honest. Actionable. Domain-agnostic.</em>
 </p>
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="License MIT"></a>
-  <a href="#"><img src="https://img.shields.io/badge/status-alpha-111111?style=flat-square" alt="Status Alpha"></a>
-  <a href="#"><img src="https://img.shields.io/badge/platform-agnostic-111111?style=flat-square" alt="Platform Agnostic"></a>
-  <a href="#"><img src="https://img.shields.io/badge/ai-ready-111111?style=flat-square" alt="AI Ready"></a>
-  <a href="#"><img src="https://img.shields.io/badge/human-validated-111111?style=flat-square" alt="Human Validated"></a>
+  <a href="https://zbbsdsb.github.io/Decomposer-Skill/"><img src="https://img.shields.io/badge/site-Swiss%20Style-000000?style=flat-square" alt="GitHub Pages"></a>
+  <a href="#"><img src="https://img.shields.io/badge/license-MIT-000000?style=flat-square" alt="License MIT"></a>
+  <a href="#"><img src="https://img.shields.io/badge/status-alpha-000000?style=flat-square" alt="Alpha"></a>
+  <a href="#"><img src="https://img.shields.io/badge/platform-agnostic-000000?style=flat-square" alt="Platform Agnostic"></a>
+  <a href="#"><img src="https://img.shields.io/badge/ai-ready-000000?style=flat-square" alt="AI Ready"></a>
 </p>
 
 ---
-
-<br>
 
 ## The Problem
 
@@ -34,8 +30,6 @@ The plan didn't warn you because the plan never saw the wall. It wasn't looking.
 
 **Decomposer exists to force the wall into visibility before you walk into it.**
 
-<br>
-
 ## The Core Claim
 
 > **The fundamental unit of progress is not a feature, a module, or a milestone.**
@@ -45,19 +39,15 @@ An unknown unknown is something you didn't even know you didn't know — a hidde
 
 The entire purpose of the Decomposer Protocol is to perform this conversion, ruthlessly and repeatedly, until what remains is a structure where every piece has a survival condition, every claim can be tested, and every gap is explicitly owned.
 
-<br>
-
 ## The Protocol in One Image
 
 <p align="center">
   <img src="assets/diagrams/protocol-flow.svg" alt="Decomposer 5-Step Protocol" width="700">
 </p>
 
-<br>
-
 ## Quick Start: 30 Seconds
 
-```bash
+```
 # 1. Read the protocol
 cat PROTOCOL.md
 
@@ -71,46 +61,23 @@ cat PROTOCOL.md
 
 The protocol runs in your head, on a whiteboard, or in a conversation. The AI skill (TRAE adapter) is a convenience, not a requirement. See `adapters/human/` for the pen-and-paper version.
 
-<br>
-
 ## The Five Steps
 
-| Step | What It Does | Why It Matters |
-|------|-------------|----------------|
-| **1. Honesty Fuse** 🚨 | State your limits before any analysis | Prevents the "shell" from forming |
-| **2. Uncertainty Mapping** 🗺️ | Classify every element as Green/Yellow/Red | Makes the invisible visible |
-| **3. Hierarchical Decomposition** 🌳 | Build a cognitive dependency tree | Reveals what must be known first |
-| **4. Error Budget** 📊 | Assign confidence, survival condition, lethality | Every node can be tested or killed |
-| **5. Anti-Shell Self-Check** 🔍 | Five hard checks. Iterate until all pass. | Guarantees honesty and actionability |
+- **01 — Honesty Fuse**. State your limits before any analysis. Prevents the "shell" from forming.
+- **02 — Uncertainty Mapping**. Classify every element as Green/Yellow/Red. Makes the invisible visible.
+- **03 — Hierarchical Decomposition**. Build a cognitive dependency tree. Reveals what must be known first.
+- **04 — Error Budget**. Assign confidence, survival condition, lethality. Every node can be tested or killed.
+- **05 — Anti-Shell Self-Check**. Five hard checks. Iterate until all pass. Guarantees honesty and actionability.
 
 **Two metrics**: Honesty and Actionability. If the output is dishonest, it is worthless. If it is honest but you cannot act on it, it is incomplete. Everything else is noise.
 
-<br>
-
 ## Standard AI Plan vs. Decomposer Output
 
-```
-┌─────────────────────────────────────┬────────────────────────────────────────┐
-│         Standard AI Plan           │         Decomposer Output              │
-├─────────────────────────────────────┼────────────────────────────────────────┤
-│ "We need user authentication."     │ "User auth — Alive if: 50 users        │
-│  (no caveats, no conditions)       │             register in week 1.         │
-│                                     │  Dead if: >10% login failures.         │
-│                                     │  Confidence: High (fast detection)."   │
-├─────────────────────────────────────┼────────────────────────────────────────┤
-│ "We'll implement a recommendation  │ "Recommendation engine — YELLOW zone.  │
-│  engine. (sounds confident)"       │  I don't know if collaborative         │
-│                                     │  filtering works here. Need 100 users  │
-│                                     │  of behavior data to test."            │
-├─────────────────────────────────────┼────────────────────────────────────────┤
-│ "Then we scale. (hand-wave)"       │ "Scale — RED zone. I cannot see the    │
-│                                     │  failure mode. This is a blind spot.   │
-│                                     │  First probe: load test with 1000      │
-│                                     │  concurrent users."                    │
-└─────────────────────────────────────┴────────────────────────────────────────┘
-```
-
-<br>
+| | Standard AI Plan | Decomposer Output |
+|---|---|---|
+| **Auth** | "We need user authentication." (no caveats, no conditions) | **ALIVE** — "User auth. Alive if 50 users register in week 1. Dead if >10% login failures." |
+| **Recommendation** | "We'll implement a recommendation engine." (sounds confident) | **YELLOW** — "I don't know if collaborative filtering works here. Need 100 users of behavior data to test." |
+| **Scale** | "Then we scale." (hand-wave) | **RED** — "I cannot see the failure mode. First probe: load test with 1000 concurrent users." |
 
 ## Platform Adapters
 
@@ -118,24 +85,20 @@ The protocol is universal. Its rendering is contextual.
 
 | Adapter | Path | Purpose |
 |---------|------|---------|
-| 🤖 **TRAE** | [`adapters/trae/`](adapters/trae/) | AI-assistant conversation integration |
-| 🐦 **Twitter** | [`adapters/twitter/`](adapters/twitter/) | Long-form essay structural template |
-| 👥 **Team** | [`adapters/team/`](adapters/team/) | Decision-friendly meeting brief |
-| 🧠 **Human** | [`adapters/human/`](adapters/human/) | Pen-and-paper physical checklist |
-
-<br>
+| **TRAE** | [`adapters/trae/`](adapters/trae/) | AI-assistant conversation integration |
+| **Twitter** | [`adapters/twitter/`](adapters/twitter/) | Long-form essay structural template |
+| **Team** | [`adapters/team/`](adapters/team/) | Decision-friendly meeting brief |
+| **Human** | [`adapters/human/`](adapters/human/) | Pen-and-paper physical checklist |
 
 ## Read These Files
 
 | File | What It Is |
 |------|-----------|
-| [`MANIFEST.md`](MANIFEST.md) | Philosophy and commitment (~800 words). Start here. |
-| [`PROTOCOL.md`](PROTOCOL.md) | The full five-step protocol (~3500 words). The core. |
+| [`MANIFEST.md`](MANIFEST.md) | Philosophy and commitment. Start here. |
+| [`PROTOCOL.md`](PROTOCOL.md) | The full five-step protocol. The core. |
 | [`FIELD_GUIDE.md`](FIELD_GUIDE.md) | Application annotations. How the protocol surfaces. |
 | [`SKILL.md`](SKILL.md) | Platform-agnostic skill definition. |
 | [`references/`](references/) | Shared reference files (position routing, output rules, checklist). |
-
-<br>
 
 ## The Commitment
 
@@ -143,24 +106,22 @@ The protocol is universal. Its rendering is contextual.
 
 > The fifty-page plan gives you the feeling of progress. The three honest nodes give you the *fact* of progress. The feeling evaporates on contact with reality. The fact survives.
 
-<br>
-
 ## License
 
 MIT — use it, fork it, remix it, ship it. The protocol is free. The honesty is the point.
-
-<br>
 
 ---
 
 <p align="center">
   <strong>Stop building shells. Start decomposing.</strong>
   <br><br>
-  <a href="https://twitter.com/intent/tweet?text=Decomposer%20-%20A%20cognitive%20protocol%20for%20turning%20unknown%20unknowns%20into%20known%20unknowns.%20No%20AI%20required.%20Just%20honesty.&url=https://github.com/zbbsdsb/Decomposer-Skill&via=zbbsdsb">Share on X/Twitter</a>
-  &nbsp;·&nbsp;
   <a href="https://github.com/zbbsdsb/Decomposer-Skill">GitHub</a>
+  &nbsp;·&nbsp;
+  <a href="https://zbbsdsb.github.io/Decomposer-Skill/">GitHub Pages</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/zbbsdsb/Decomposer-Skill/blob/main/PROTOCOL.md">Protocol</a>
 </p>
 
 <p align="center">
-  Created by <a href="https://github.com/zbbsdsb">ceaserzhao</a> &nbsp;·&nbsp; MIT License
+  <a href="https://github.com/zbbsdsb">ceaserzhao</a> &nbsp;·&nbsp; MIT License
 </p>

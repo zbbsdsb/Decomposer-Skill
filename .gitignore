@@ -12,7 +12,15 @@ Desktop.ini
 
 # TRAE workspace artifacts
 .trae-cn/
+.workbuddy/
 
 # Temporary / working files
 *.tmp
 *.bak
+
+# GitHub Pages
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock

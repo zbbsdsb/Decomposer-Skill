@@ -3,662 +3,406 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Decomposer — Turn Unknown Unknowns into Known Unknowns</title>
+<title>DECOMPOSER — Turn Unknown Unknowns into Known Unknowns</title>
 <meta name="description" content="A cognitive operation protocol for transforming unknown unknowns into known unknowns. Honest. Actionable. Domain-agnostic.">
-<meta property="og:title" content="Decomposer">
+<meta property="og:title" content="DECOMPOSER">
 <meta property="og:description" content="A cognitive protocol for turning unknown unknowns into known unknowns. No AI required. Just honesty.">
 <meta property="og:image" content="https://raw.githubusercontent.com/zbbsdsb/Decomposer-Skill/main/assets/images/og-card.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Decomposer">
+<meta name="twitter:title" content="DECOMPOSER">
 <meta name="twitter:description" content="A cognitive protocol for turning unknown unknowns into known unknowns. No AI required. Just honesty.">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zbbsdsb/Decomposer-Skill/main/assets/images/og-card.svg">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0a0a0a;
-    --bg-card: #141414;
-    --bg-elevated: #1a1a1a;
-    --text: #f5f5f0;
-    --text-secondary: #a0a0a0;
-    --text-muted: #666;
-    --border: #2a2a2a;
-    --green: #f5f5f5;
-    --yellow: #d4d4d4;
-    --red: #a3a3a3;
-    --blue: #b0b0b0;
-    --radius: 12px;
+    --white: #FFFFFF;
+    --black: #000000;
+    --gray-50: #666666;
+    --gray-20: #CCCCCC;
+    --gray-10: #E5E5E5;
+    --gray-5: #F5F5F5;
+    --font: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    --max-w: 1200px;
+    --col-gap: 24px;
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 32px;
+    --space-lg: 64px;
+    --space-xl: 96px;
   }
 
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    font-family: var(--font);
+    background: var(--white);
+    color: var(--black);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Grid */
+  .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--col-gap); max-width: var(--max-w); margin: 0 auto; padding: 0 var(--col-gap); }
+  .col-span-1 { grid-column: span 1; } .col-span-2 { grid-column: span 2; } .col-span-3 { grid-column: span 3; }
+  .col-span-4 { grid-column: span 4; } .col-span-5 { grid-column: span 5; } .col-span-6 { grid-column: span 6; }
+  .col-span-7 { grid-column: span 7; } .col-span-8 { grid-column: span 8; } .col-span-9 { grid-column: span 9; }
+  .col-span-10 { grid-column: span 10; } .col-span-11 { grid-column: span 11; } .col-span-12 { grid-column: span 12; }
+  .col-start-2 { grid-column-start: 2; } .col-start-3 { grid-column-start: 3; } .col-start-4 { grid-column-start: 4; }
+
   /* Navigation */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--white); border-bottom: 1px solid var(--black); height: 56px;
   }
-  nav .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--text);
-    text-decoration: none;
+  nav .nav-inner {
+    max-width: var(--max-w); margin: 0 auto; padding: 0 var(--col-gap);
+    height: 100%; display: flex; align-items: center; justify-content: space-between;
   }
-  nav .logo svg { width: 28px; height: 28px; }
-  nav .links { display: flex; gap: 24px; align-items: center; }
-  nav .links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  nav .links a:hover { color: var(--text); }
-  nav .btn-github {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 6px 16px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  nav .btn-github:hover {
-    background: var(--border);
-    border-color: var(--text-muted);
-  }
+  nav .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--black); }
+  nav .logo svg { width: 26px; height: 26px; }
+  nav .logo span { font-size: 14px; font-weight: 700; letter-spacing: 1px; }
+  nav .links { display: flex; gap: 32px; align-items: center; }
+  nav .links a { color: var(--black); text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: opacity 0.2s; }
+  nav .links a:hover { opacity: 0.5; }
+  nav .links a.btn-gh { border: 1px solid var(--black); padding: 6px 16px; font-size: 10px; letter-spacing: 2px; }
+  nav .links a.btn-gh:hover { background: var(--black); color: var(--white); opacity: 1; }
 
   /* Hero */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 120px 24px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 800px; height: 800px;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero .logo-ring {
-    width: 80px; height: 80px;
-    margin-bottom: 32px;
-    position: relative;
-  }
-  .hero .logo-ring svg { width: 100%; height: 100%; }
-  .hero h1 {
-    font-size: clamp(40px, 8vw, 72px);
-    font-weight: 800;
-    letter-spacing: -2px;
-    line-height: 1.05;
-    margin-bottom: 20px;
-  }
-  .hero h1 .highlight-green { color: var(--green); }
-  .hero h1 .highlight-yellow { color: var(--yellow); }
-  .hero h1 .highlight-red { color: var(--red); }
-  .hero p {
-    font-size: clamp(16px, 2.5vw, 20px);
-    color: var(--text-secondary);
-    max-width: 640px;
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-  .hero .cta-buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .hero .cta-buttons a {
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .btn-primary {
-    background: var(--text);
-    color: var(--bg);
-  }
-  .btn-primary:hover { background: #ddd; transform: translateY(-1px); }
-  .btn-secondary {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    color: var(--text);
-  }
-  .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-1px); }
-
-  .hero .badge-row {
-    display: flex;
-    gap: 8px;
-    margin-top: 48px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .hero .badge {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-  }
-  .badge-green { background: rgba(34, 197, 94, 0.15); color: var(--green); }
-  .badge-yellow { background: rgba(234, 179, 8, 0.15); color: var(--yellow); }
-  .badge-red { background: rgba(239, 68, 68, 0.15); color: var(--red); }
-  .badge-blue { background: rgba(59, 130, 246, 0.15); color: var(--blue); }
+  .hero { padding: 160px 0 96px; }
+  .hero h1 { font-size: clamp(48px, 8vw, 80px); font-weight: 700; letter-spacing: -1px; line-height: 1.05; margin-bottom: var(--space-md); }
+  .hero .rule { width: 60px; height: 2px; background: var(--black); margin-bottom: var(--space-md); }
+  .hero .sub { font-size: 18px; color: var(--gray-50); line-height: 1.5; margin-bottom: var(--space-lg); max-width: 600px; }
+  .hero .ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero .ctas a { padding: 12px 28px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+  .hero .cta-primary { background: var(--black); color: var(--white); border: 1px solid var(--black); }
+  .hero .cta-primary:hover { background: var(--white); color: var(--black); }
+  .hero .cta-secondary { border: 1px solid var(--black); color: var(--black); }
+  .hero .cta-secondary:hover { background: var(--black); color: var(--white); }
+  .hero .tags { margin-top: var(--space-lg); display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero .tags span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-50); }
+  .hero .tags span::after { content: ''; display: inline-block; width: 1px; height: 10px; background: var(--gray-20); margin-left: 16px; }
+  .hero .tags span:last-child::after { display: none; }
 
   /* Sections */
-  section { padding: 80px 24px; }
-  .section-inner {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .section-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }
-  .section-title {
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
-  }
-  .section-desc {
-    font-size: 15px;
-    color: var(--text-secondary);
-    margin-bottom: 48px;
-    line-height: 1.7;
-  }
+  section { padding: 96px 0; }
+  section + section { border-top: none; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gray-50); margin-bottom: var(--space-sm); }
+  .section-title { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: var(--space-sm); line-height: 1.2; }
+  .section-desc { font-size: 15px; color: var(--gray-50); line-height: 1.7; }
+  .section-rule { width: 40px; height: 1px; background: var(--gray-20); margin: var(--space-lg) 0; }
 
   /* Problem section */
-  .problem-section {
-    background: var(--bg-card);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .problem-section blockquote {
-    border-left: 3px solid var(--red);
-    padding-left: 24px;
-    margin: 24px 0;
-    color: var(--text-secondary);
-    font-style: italic;
-    font-size: 15px;
-  }
-
-  /* The Claim */
-  .claim-block {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 32px;
-    margin: 32px 0;
-    text-align: center;
-  }
-  .claim-block p {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.5;
-  }
-  .claim-block .highlight {
-    background: linear-gradient(135deg, var(--green), var(--yellow));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  .problem-block { margin: var(--space-lg) 0; }
+  .problem-block p { font-size: 15px; line-height: 1.8; color: var(--gray-50); margin-bottom: var(--space-md); }
+  .problem-block p strong { color: var(--black); }
+  .problem-block blockquote { border-left: 2px solid var(--black); padding-left: var(--space-md); margin: var(--space-md) 0; font-size: 16px; font-weight: 600; line-height: 1.5; color: var(--black); }
+  .claim-block { border: 1px solid var(--black); padding: var(--space-lg); margin: var(--space-lg) 0; }
+  .claim-block p { font-size: 18px; font-weight: 700; line-height: 1.5; margin: 0; color: var(--black); }
 
   /* Steps */
-  .steps { display: flex; flex-direction: column; gap: 16px; }
-  .step {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    transition: border-color 0.2s;
-  }
-  .step:hover { border-color: var(--text-muted); }
-  .step-indicator {
-    flex-shrink: 0;
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 14px;
-  }
-  .step-indicator.green { background: rgba(34, 197, 94, 0.15); color: var(--green); }
-  .step-indicator.yellow { background: rgba(234, 179, 8, 0.15); color: var(--yellow); }
-  .step-indicator.red { background: rgba(239, 68, 68, 0.15); color: var(--red); }
-  .step-content h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-  .step-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
-  .step-gate {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-  }
-  .step-gate.red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
+  .steps { margin-top: var(--space-lg); }
+  .step { padding: var(--space-md) 0; border-bottom: 1px solid var(--gray-10); }
+  .step:last-child { border-bottom: none; }
+  .step .step-header { display: flex; gap: var(--space-sm); align-items: baseline; margin-bottom: var(--space-xs); }
+  .step .step-num { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gray-50); min-width: 60px; }
+  .step .step-title { font-size: 18px; font-weight: 700; }
+  .step .step-gate { font-size: 9px; font-weight: 700; letter-spacing: 1px; color: var(--gray-50); border: 1px solid var(--gray-20); padding: 2px 8px; margin-left: var(--space-sm); }
+  .step .step-desc { font-size: 13px; color: var(--gray-50); line-height: 1.6; }
+  .step .step-desc strong { color: var(--black); }
 
   /* Comparison */
-  .comparison-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 32px;
-  }
-  @media (max-width: 640px) { .comparison-grid { grid-template-columns: 1fr; } }
-  .comparison-col {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-  }
-  .comparison-col h3 {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .comparison-col.bad h3 { color: var(--red); }
-  .comparison-col.good h3 { color: var(--green); }
-  .comparison-col .item {
-    padding: 12px 0;
-    border-top: 1px solid var(--border);
-    font-size: 13px;
-    line-height: 1.5;
-  }
-  .comparison-col .item:first-of-type { border-top: none; }
-  .comparison-col .item .tag {
-    display: inline-block;
-    padding: 1px 6px;
-    border-radius: 3px;
-    font-size: 10px;
-    font-weight: 600;
-    margin-right: 6px;
-  }
-  .tag-red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
-  .tag-yellow { background: rgba(234, 179, 8, 0.2); color: var(--yellow); }
-  .tag-green { background: rgba(34, 197, 94, 0.2); color: var(--green); }
-  .tag-muted { background: rgba(102, 102, 102, 0.3); color: var(--text-muted); }
-
-  /* Adapters */
-  .adapter-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-    margin-top: 32px;
-  }
-  .adapter-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.2s;
-  }
-  .adapter-card:hover {
-    border-color: var(--text-muted);
-    transform: translateY(-2px);
-  }
-  .adapter-card .emoji { font-size: 24px; margin-bottom: 8px; display: block; }
-  .adapter-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-  .adapter-card p { font-size: 12px; color: var(--text-secondary); }
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: var(--space-lg); }
+  @media (max-width: 768px) { .comp-grid { grid-template-columns: 1fr; } }
+  .comp-col { border: 1px solid var(--black); }
+  .comp-col + .comp-col { border-left: none; }
+  @media (max-width: 768px) { .comp-col + .comp-col { border-left: 1px solid var(--black); border-top: none; } }
+  .comp-col h3 { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--black); }
+  .comp-col .item { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--gray-10); font-size: 13px; line-height: 1.5; }
+  .comp-col .item:last-child { border-bottom: none; }
+  .comp-col .item .tag { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-right: 8px; }
+  .tag-green { color: var(--black); } .tag-yellow { color: var(--gray-50); } .tag-red { color: var(--gray-50); }
 
   /* Metrics */
-  .metrics-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 32px;
-  }
-  @media (max-width: 480px) { .metrics-row { grid-template-columns: 1fr; } }
-  .metric-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    text-align: center;
-  }
-  .metric-card h4 {
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .metric-card.green h4 { color: var(--green); }
-  .metric-card.red h4 { color: var(--red); }
-  .metric-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: var(--space-lg); }
+  @media (max-width: 640px) { .metrics { grid-template-columns: 1fr; } }
+  .metric { border: 1px solid var(--black); padding: var(--space-lg); }
+  .metric + .metric { border-left: none; }
+  @media (max-width: 640px) { .metric + .metric { border-left: 1px solid var(--black); border-top: none; } }
+  .metric h4 { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: var(--space-sm); }
+  .metric p { font-size: 13px; color: var(--gray-50); line-height: 1.6; }
+
+  /* Adapters */
+  .adapter-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: var(--space-lg); }
+  @media (max-width: 768px) { .adapter-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .adapter-grid { grid-template-columns: 1fr; } }
+  .adapter-item { border: 1px solid var(--black); padding: var(--space-md); text-decoration: none; color: var(--black); transition: background 0.2s; }
+  .adapter-item + .adapter-item { border-left: none; }
+  @media (max-width: 768px) { .adapter-item:nth-child(2) { border-left: 1px solid var(--black); } .adapter-item:nth-child(3) { border-left: none; } .adapter-item:nth-child(4) { border-left: 1px solid var(--black); } }
+  @media (max-width: 480px) { .adapter-item { border-left: 1px solid var(--black) !important; } }
+  .adapter-item:hover { background: var(--gray-5); }
+  .adapter-item h4 { font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+  .adapter-item p { font-size: 11px; color: var(--gray-50); line-height: 1.5; }
+
+  /* Protocol diagram */
+  .diagram-wrap { margin: var(--space-lg) 0; }
+  .diagram-wrap img { max-width: 100%; height: auto; border: 1px solid var(--black); display: block; }
+
+  /* Quick start */
+  .code-block { border: 1px solid var(--black); padding: var(--space-md); font-family: 'SF Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace; font-size: 13px; line-height: 1.8; color: var(--gray-50); margin: var(--space-md) 0; }
+  .code-block .prompt { color: var(--black); }
+  .code-block .comment { color: var(--gray-20); }
+
+  /* Commitment */
+  .commitment { border: 1px solid var(--black); padding: var(--space-lg); margin: var(--space-lg) 0; font-size: 15px; line-height: 1.7; color: var(--gray-50); }
+  .commitment p { margin-bottom: var(--space-sm); }
+  .commitment p:last-child { margin-bottom: 0; }
+  .commitment strong { color: var(--black); }
 
   /* Footer */
-  footer {
-    text-align: center;
-    padding: 48px 24px;
-    border-top: 1px solid var(--border);
-    color: var(--text-muted);
-    font-size: 13px;
-  }
-  footer a { color: var(--text-secondary); text-decoration: none; }
-  footer a:hover { color: var(--text); }
-  footer .social-links {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-  footer .social-links a {
-    padding: 8px 16px;
-    border-radius: 6px;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  footer .social-links a:hover {
-    border-color: var(--text-muted);
-    color: var(--text);
-  }
+  footer { padding: var(--space-lg) 0; border-top: 1px solid var(--black); text-align: center; }
+  footer .links { display: flex; gap: var(--space-md); justify-content: center; margin-bottom: var(--space-sm); }
+  footer .links a { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--black); text-decoration: none; }
+  footer .links a:hover { opacity: 0.5; }
+  footer p { font-size: 12px; color: var(--gray-50); }
 
-  .commitment-quote {
-    font-size: 15px;
-    color: var(--text-secondary);
-    border-left: 3px solid var(--yellow);
-    padding-left: 24px;
-    margin: 32px 0;
-    line-height: 1.7;
-    font-style: italic;
-  }
-
-  /* Protocol diagram inline */
-  .protocol-diagram {
-    margin: 40px 0;
-    text-align: center;
-  }
-  .protocol-diagram img {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-  }
-
-  @media (max-width: 640px) {
-    nav .links a:not(.btn-github) { display: none; }
-    section { padding: 60px 16px; }
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav .links a:not(.btn-gh) { display: none; }
+    section { padding: var(--space-lg) 0; }
+    .hero { padding: 120px 0 var(--space-lg); }
+    .grid { padding: 0 var(--space-sm); }
+    .col-span-1, .col-span-2, .col-span-3, .col-span-4, .col-span-5, .col-span-6,
+    .col-span-7, .col-span-8, .col-span-9, .col-span-10, .col-span-11 { grid-column: span 12; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="logo">
-    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor">
-      <circle cx="32" cy="32" r="30" stroke-width="1"/>
-      <circle cx="32" cy="32" r="20" stroke-width="1.5"/>
-      <circle cx="32" cy="32" r="10" fill="currentColor" stroke="none"/>
-      <path d="M52 14 L44 22" stroke-width="1.5" stroke-linecap="round"/>
-      <polygon points="44,22 49,18 51,24" fill="currentColor" stroke="none"/>
-    </svg>
-    Decomposer
-  </a>
-  <div class="links">
-    <a href="#problem">Problem</a>
-    <a href="#protocol">Protocol</a>
-    <a href="#adapters">Adapters</a>
-    <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="btn-github" target="_blank">GitHub</a>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <svg viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="29" stroke="#000000" stroke-width="1.5"/>
+        <circle cx="32" cy="32" r="19" stroke="#000000" stroke-width="1.5"/>
+        <circle cx="32" cy="32" r="9" fill="#000000"/>
+        <line x1="52" y1="14" x2="44" y2="22" stroke="#000000" stroke-width="1.5" stroke-linecap="round"/>
+        <polygon points="44,22 49,18 51,24" fill="#000000"/>
+      </svg>
+      <span>DECOMPOSER</span>
+    </a>
+    <div class="links">
+      <a href="#problem">PROBLEM</a>
+      <a href="#protocol">PROTOCOL</a>
+      <a href="#adapters">ADAPTERS</a>
+      <a href="demo.html">DEMO</a>
+      <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="btn-gh" target="_blank">GITHUB</a>
+    </div>
   </div>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-  <div class="logo-ring">
-    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor">
-      <circle cx="32" cy="32" r="30" stroke-width="1"/>
-      <circle cx="32" cy="32" r="20" stroke-width="1.5"/>
-      <circle cx="32" cy="32" r="10" fill="currentColor" stroke="none"/>
-      <path d="M52 14 L44 22" stroke-width="1.5" stroke-linecap="round"/>
-      <polygon points="44,22 49,18 51,24" fill="currentColor" stroke="none"/>
-    </svg>
-  </div>
-  <h1>
-    Turn <span class="highlight-green">known</span> into<br>
-    <span class="highlight-yellow">known unknown</span> into<br>
-    <span class="highlight-red">unknown unknown</span>
-  </h1>
-  <p>A cognitive protocol for transforming unknown unknowns into known unknowns. Honest. Actionable. Domain-agnostic.</p>
-  <div class="cta-buttons">
-    <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="btn-primary">View on GitHub</a>
-    <a href="#protocol" class="btn-secondary">Read the Protocol</a>
-  </div>
-  <div class="badge-row">
-    <span class="badge badge-green">MIT License</span>
-    <span class="badge badge-yellow">Platform Agnostic</span>
-    <span class="badge badge-red">AI Ready</span>
-    <span class="badge badge-blue">Human Validated</span>
+  <div class="grid">
+    <div class="col-span-8 col-start-2">
+      <h1>TURN UNKNOWN UNKNOWNS INTO KNOWN UNKNOWNS</h1>
+      <div class="rule"></div>
+      <p class="sub">A cognitive protocol for decomposing any large, ambiguous goal into an actionable uncertainty map. Honest. Actionable. Domain-agnostic.</p>
+      <div class="ctas">
+        <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="cta-primary">VIEW ON GITHUB</a>
+        <a href="#protocol" class="cta-secondary">READ THE PROTOCOL</a>
+      </div>
+      <div class="tags">
+        <span>MIT LICENSE</span>
+        <span>PLATFORM AGNOSTIC</span>
+        <span>AI READY</span>
+        <span>HUMAN VALIDATED</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Problem -->
-<section class="problem-section" id="problem">
-  <div class="section-inner">
-    <div class="section-label">The Problem</div>
-    <h2 class="section-title">Every AI-generated plan is a lie.</h2>
-    <p class="section-desc">
-      Not a malicious lie. Not a deliberate deception. But a lie nonetheless — a polished module list that mimics the shape of understanding without any of the substance. "User management. Payment system. Recommendation engine." It looks structured. It looks comprehensive. It is a <strong>shell</strong>.
-    </p>
-    <blockquote>
-      The plan didn't warn you because the plan never saw the wall. It wasn't looking.
-    </blockquote>
-    <p style="font-size: 15px; color: var(--text-secondary);">
-      <strong>Decomposer exists to force the wall into visibility before you walk into it.</strong>
-    </p>
-
-    <div class="claim-block">
-      <p>The fundamental unit of progress is the conversion of<br>
-      one <span class="highlight">unknown unknown</span> into a <span class="highlight">known unknown</span>.</p>
+<section id="problem">
+  <div class="grid">
+    <div class="col-span-8 col-start-2">
+      <div class="section-label">THE PROBLEM</div>
+      <h2 class="section-title">Every AI-generated plan is a lie.</h2>
+      <div class="problem-block">
+        <p>Not a malicious lie. Not a deliberate deception. But a lie nonetheless — a polished module list that mimics the shape of understanding without any of the substance. "User management. Payment system. Recommendation engine." It looks structured. It looks comprehensive. It is a <strong>shell</strong>.</p>
+        <p>The shell looks like progress. It feels like clarity. But the moment you try to act on it, you hit a wall that was invisible in the plan — a dependency nobody mentioned, an assumption that was false, a constraint that makes the entire architecture untenable.</p>
+        <blockquote>The plan didn't warn you because the plan never saw the wall. It wasn't looking.</blockquote>
+        <p><strong>Decomposer exists to force the wall into visibility before you walk into it.</strong></p>
+      </div>
+      <div class="claim-block">
+        <p>The fundamental unit of progress is not a feature, a module, or a milestone. It is the conversion of one unknown unknown into a known unknown.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Protocol -->
-<section id="protocol">
-  <div class="section-inner">
-    <div class="section-label">The Protocol</div>
-    <h2 class="section-title">Five Steps. No AI Required.</h2>
-    <p class="section-desc">
-      The protocol runs in your head, on a whiteboard, or in a conversation. The AI skill is a convenience, not a requirement.
-    </p>
-
-    <div class="protocol-diagram">
-      <img src="assets/diagrams/protocol-flow.svg" alt="Decomposer 5-Step Protocol Diagram">
+<section id="protocol" style="background: var(--gray-5);">
+  <div class="grid">
+    <div class="col-span-8 col-start-2">
+      <div class="section-label">THE PROTOCOL</div>
+      <h2 class="section-title">Five Steps. No AI Required.</h2>
+      <p class="section-desc">The protocol runs in your head, on a whiteboard, or in a conversation. The AI skill is a convenience, not a requirement.</p>
     </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-indicator red">01</div>
-        <div class="step-content">
-          <h3>Honesty Fuse</h3>
-          <p>Before any analysis, state three things: what you can actually engage with, where you are blind, and how this thing most likely dies.</p>
-          <span class="step-gate red">HARD GATE</span>
+  </div>
+  <div class="grid">
+    <div class="col-span-10 col-start-2">
+      <div class="diagram-wrap">
+        <img src="../assets/diagrams/protocol-flow.svg" alt="Decomposer 5-Step Protocol Diagram">
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-header">
+            <span class="step-num">STEP 01</span>
+            <span class="step-title">HONESTY FUSE</span>
+            <span class="step-gate">HARD GATE</span>
+          </div>
+          <p class="step-desc">Before any analysis, state three things: what you can actually engage with, where you are blind, and how this thing most likely dies. No module lists. No false comfort. <strong>The first honest act is refusing premature reassurance.</strong></p>
         </div>
-      </div>
-      <div class="step">
-        <div class="step-indicator green">02</div>
-        <div class="step-content">
-          <h3>Uncertainty Mapping</h3>
-          <p>Classify every element into three zones. Green = Known-Known, Yellow = Known-Unknown, Red = Unknown-Unknown. If Green exceeds 70%, the map is dishonest.</p>
+        <div class="step">
+          <div class="step-header">
+            <span class="step-num">STEP 02</span>
+            <span class="step-title">UNCERTAINTY MAPPING</span>
+          </div>
+          <p class="step-desc">Classify every element into three zones: <strong>Green</strong> (Known-Known), <strong>Yellow</strong> (Known-Unknown), <strong>Red</strong> (Unknown-Unknown). If Green exceeds 70% of all mapped elements, the mapping is dishonest.</p>
         </div>
-      </div>
-      <div class="step">
-        <div class="step-indicator yellow">03</div>
-        <div class="step-content">
-          <h3>Hierarchical Decomposition</h3>
-          <p>Transform the flat map into a cognitive dependency tree. This is not functional decomposition — ask "What must I know before I can know X?"</p>
+        <div class="step">
+          <div class="step-header">
+            <span class="step-num">STEP 03</span>
+            <span class="step-title">HIERARCHICAL DECOMPOSITION</span>
+          </div>
+          <p class="step-desc">Transform the flat map into a cognitive dependency tree. This is <strong>not</strong> functional decomposition. Ask: "What must I know before I can know X?" Identify root unknowns, apply the dependency test, and prune the tree.</p>
         </div>
-      </div>
-      <div class="step">
-        <div class="step-indicator yellow">04</div>
-        <div class="step-content">
-          <h3>Error Budget Assignment</h3>
-          <p>For each node: Confidence (how fast would failure surface?), Survival Condition (Alive if / Dead if), Lethality (what dies with it).</p>
+        <div class="step">
+          <div class="step-header">
+            <span class="step-num">STEP 04</span>
+            <span class="step-title">ERROR BUDGET ASSIGNMENT</span>
+          </div>
+          <p class="step-desc">For each node: <strong>Confidence</strong> (how fast would failure surface?), <strong>Survival Condition</strong> (Alive if / Dead if), <strong>Lethality</strong> (what dies with it). A node with High confidence but no written survival condition is automatically downgraded to Low.</p>
         </div>
-      </div>
-      <div class="step">
-        <div class="step-indicator red">05</div>
-        <div class="step-content">
-          <h3>Anti-Shell Self-Check</h3>
-          <p>Five hard checks: Survival Condition, Jargon, Uncertainty Ratio, Honesty, Actionability. If any fails, return to the corresponding step. Repeat until all pass.</p>
-          <span class="step-gate red">GATE KEEPER</span>
+        <div class="step">
+          <div class="step-header">
+            <span class="step-num">STEP 05</span>
+            <span class="step-title">ANTI-SHELL SELF-CHECK</span>
+            <span class="step-gate">GATE KEEPER</span>
+          </div>
+          <p class="step-desc">Five hard checks: Survival Condition, Jargon, Uncertainty Ratio, Honesty, Actionability. If any fails, return to the corresponding step. <strong>Repeat until all pass.</strong></p>
         </div>
-      </div>
-    </div>
-
-    <!-- Comparison -->
-    <div class="section-label" style="margin-top: 64px;">Side by Side</div>
-    <h2 class="section-title">Standard AI Plan vs. Decomposer</h2>
-    <div class="comparison-grid">
-      <div class="comparison-col bad">
-        <h3>Standard AI Plan</h3>
-        <div class="item"><span class="tag tag-muted">M5</span>"We need user authentication."</div>
-        <div class="item"><span class="tag tag-muted">M4</span>"We'll implement a recommendation engine."</div>
-        <div class="item"><span class="tag tag-muted">M3</span>"Then we can scale."</div>
-      </div>
-      <div class="comparison-col good">
-        <h3>Decomposer Output</h3>
-        <div class="item"><span class="tag tag-green">Alive</span>"User auth — Alive if 50 users register in week 1. Dead if >10% failures."</div>
-        <div class="item"><span class="tag tag-yellow">Yellow</span>"Recommendation engine — I don't know if collaborative filtering works here. Need 100 users."</div>
-        <div class="item"><span class="tag tag-red">Red</span>"Scale — I cannot see the failure mode. First probe: load test with 1000 concurrent users."</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Metrics -->
-    <div class="section-label" style="margin-top: 64px;">The Only Metrics</div>
-    <div class="metrics-row">
-      <div class="metric-card green">
-        <h4>Honesty</h4>
-        <p>If the output is dishonest, it is worthless. The protocol begins with a confession of limits, not a plan.</p>
-      </div>
-      <div class="metric-card red">
-        <h4>Actionability</h4>
-        <p>If it is honest but you cannot act on it, it is incomplete. Every node has a concrete first step.</p>
+<!-- Comparison -->
+<section>
+  <div class="grid">
+    <div class="col-span-10 col-start-2">
+      <div class="section-label">SIDE BY SIDE</div>
+      <h2 class="section-title">Standard AI Plan vs. Decomposer</h2>
+      <div class="comp-grid">
+        <div class="comp-col">
+          <h3>STANDARD AI PLAN</h3>
+          <div class="item"><span class="tag tag-red">M5</span>"We need user authentication."</div>
+          <div class="item"><span class="tag tag-red">M4</span>"We'll implement a recommendation engine."</div>
+          <div class="item"><span class="tag tag-red">M3</span>"Then we can scale."</div>
+        </div>
+        <div class="comp-col">
+          <h3>DECOMPOSER OUTPUT</h3>
+          <div class="item"><span class="tag tag-green">ALIVE</span>"User auth — Alive if 50 users register in week 1. Dead if &gt;10% failures."</div>
+          <div class="item"><span class="tag tag-yellow">YELLOW</span>"Recommendation engine — I don't know if collaborative filtering works here. Need 100 users of behavior data."</div>
+          <div class="item"><span class="tag tag-red">RED</span>"Scale — I cannot see the failure mode. First probe: load test with 1000 concurrent users."</div>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="commitment-quote">
-      "If the best we can deliver is three honest nodes with survival conditions — three pieces of the problem that are genuinely understood and genuinely actionable — that is superior to a fifty-page plan where every module is a placeholder in disguise."
+<!-- Metrics -->
+<section>
+  <div class="grid">
+    <div class="col-span-10 col-start-2">
+      <div class="section-label">THE ONLY METRICS</div>
+      <h2 class="section-title">Honesty and Actionability</h2>
+      <div class="metrics">
+        <div class="metric">
+          <h4>HONESTY</h4>
+          <p>If the output is dishonest, it is worthless. The protocol begins with a confession of limits, not a plan. Every node must have an explicit survival condition.</p>
+        </div>
+        <div class="metric">
+          <h4>ACTIONABILITY</h4>
+          <p>If it is honest but you cannot act on it, it is incomplete. Every node must have a concrete first step. The protocol ends with a single sentence: "Do this first."</p>
+        </div>
+      </div>
+      <div class="commitment">
+        <p>"If the best we can deliver is three honest nodes with survival conditions — three pieces of the problem that are genuinely understood and genuinely actionable — that is superior to a fifty-page plan where every module is a placeholder in disguise."</p>
+        <p><strong>The fifty-page plan gives you the feeling of progress. The three honest nodes give you the fact of progress.</strong></p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Adapters -->
-<section id="adapters" style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="section-inner">
-    <div class="section-label">Platform Adapters</div>
-    <h2 class="section-title">One Protocol, Many Contexts</h2>
-    <p class="section-desc">The protocol is universal. Its rendering is contextual. Each adapter defines platform-specific invocation and formatting rules.</p>
-
-    <div class="adapter-grid">
-      <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/trae" class="adapter-card">
-        <span class="emoji">🤖</span>
-        <h4>TRAE</h4>
-        <p>AI-assistant conversation integration</p>
-      </a>
-      <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/twitter" class="adapter-card">
-        <span class="emoji">🐦</span>
-        <h4>Twitter</h4>
-        <p>Long-form essay structural template</p>
-      </a>
-      <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/team" class="adapter-card">
-        <span class="emoji">👥</span>
-        <h4>Team</h4>
-        <p>Decision-friendly meeting brief</p>
-      </a>
-      <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/human" class="adapter-card">
-        <span class="emoji">🧠</span>
-        <h4>Human</h4>
-        <p>Pen-and-paper physical checklist</p>
-      </a>
+<section id="adapters" style="background: var(--gray-5);">
+  <div class="grid">
+    <div class="col-span-10 col-start-2">
+      <div class="section-label">PLATFORM ADAPTERS</div>
+      <h2 class="section-title">One Protocol, Many Contexts</h2>
+      <p class="section-desc">The protocol is universal. Its rendering is contextual. Each adapter defines platform-specific invocation and formatting rules.</p>
+      <div class="adapter-grid">
+        <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/trae" class="adapter-item">
+          <h4>TRAE</h4>
+          <p>AI-assistant conversation integration</p>
+        </a>
+        <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/twitter" class="adapter-item">
+          <h4>TWITTER</h4>
+          <p>Long-form essay structural template</p>
+        </a>
+        <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/team" class="adapter-item">
+          <h4>TEAM</h4>
+          <p>Decision-friendly meeting brief</p>
+        </a>
+        <a href="https://github.com/zbbsdsb/Decomposer-Skill/tree/main/adapters/human" class="adapter-item">
+          <h4>HUMAN</h4>
+          <p>Pen-and-paper physical checklist</p>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Quick Start -->
 <section>
-  <div class="section-inner" style="text-align: center;">
-    <div class="section-label">Quick Start</div>
-    <h2 class="section-title">30 Seconds to Decompose</h2>
-    <p class="section-desc" style="max-width: 500px; margin-left: auto; margin-right: auto;">
-      No installation. No dependencies. No AI required. Just a problem and the willingness to be honest about what you don't know.
-    </p>
-    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-align: left; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; line-height: 1.7; color: var(--text-secondary); margin: 0 auto; max-width: 480px;">
-      <span style="color: var(--green);">$</span> cat PROTOCOL.md<br>
-      <span style="color: var(--text-muted);"># Pick a problem — anything large, ambiguous, or scary</span><br>
-      <span style="color: var(--text-muted);"># Run the 5 steps on a whiteboard</span><br>
-      <span style="color: var(--text-muted);"># The output is an actionable uncertainty map</span><br>
-      <span style="color: var(--text-muted);"># Everything has a survival condition. Nothing is hidden.</span>
+  <div class="grid">
+    <div class="col-span-6 col-start-4" style="text-align: center;">
+      <div class="section-label">QUICK START</div>
+      <h2 class="section-title">30 Seconds to Decompose</h2>
+      <p class="section-desc">No installation. No dependencies. No AI required. Just a problem and the willingness to be honest about what you don't know.</p>
+      <div class="code-block" style="text-align: left;">
+        <span class="prompt">$</span> cat PROTOCOL.md<br>
+        <span class="comment"># Pick a problem — anything large, ambiguous, or scary</span><br>
+        <span class="comment"># Run the 5 steps on a whiteboard</span><br>
+        <span class="comment"># The output is an actionable uncertainty map</span><br>
+        <span class="comment"># Everything has a survival condition. Nothing is hidden.</span>
+      </div>
+      <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="cta-primary" style="display: inline-block; padding: 12px 28px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; background: var(--black); color: var(--white); border: 1px solid var(--black); margin-top: var(--space-sm);">VIEW ON GITHUB →</a>
     </div>
-    <br><br>
-    <a href="https://github.com/zbbsdsb/Decomposer-Skill" class="btn-primary" style="display: inline-block;">View on GitHub →</a>
   </div>
 </section>
 
 <footer>
-  <div class="social-links">
-    <a href="https://twitter.com/intent/tweet?text=Decomposer%20-%20A%20cognitive%20protocol%20for%20turning%20unknown%20unknowns%20into%20known%20unknowns.%20No%20AI%20required.%20Just%20honesty.&url=https://github.com/zbbsdsb/Decomposer-Skill&via=zbbsdsb" target="_blank">Share on X</a>
-    <a href="https://github.com/zbbsdsb/Decomposer-Skill" target="_blank">GitHub</a>
+  <div class="links">
+    <a href="https://github.com/zbbsdsb/Decomposer-Skill" target="_blank">GITHUB</a>
+    <a href="https://github.com/zbbsdsb/Decomposer-Skill/blob/main/PROTOCOL.md" target="_blank">PROTOCOL</a>
+    <a href="https://github.com/zbbsdsb/Decomposer-Skill/blob/main/CONTRIBUTING.md" target="_blank">CONTRIBUTE</a>
   </div>
-  <p>MIT License — use it, fork it, remix it, ship it. The protocol is free. The honesty is the point.</p>
-  <p style="margin-top: 8px;">Stop building shells. <strong>Start decomposing.</strong></p>
+  <p>MIT LICENSE — USE IT, FORK IT, REMIX IT, SHIP IT. THE PROTOCOL IS FREE. THE HONESTY IS THE POINT.</p>
+  <p style="margin-top: 8px; font-weight: 700;">STOP BUILDING SHELLS. START DECOMPOSING.</p>
 </footer>
 
 </body>
