@@ -24,3 +24,7 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 Gemfile.lock
+
+# Generated promo artifacts (thumbnails, render backups)
+decomposer-promo/.thumbnails/
+decomposer-promo/.hyperframes/backup/
